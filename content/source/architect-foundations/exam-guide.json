@@ -1,0 +1,110 @@
+{
+  "slug": "architect-foundations",
+  "name": "Claude Certified Architect – Foundations",
+  "examCode": "CCAR-F",
+  "sourceUrl": "https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2F6nizmqk8tpzpfjvt6qmmav7rh%2Fpublic%2F1783542750%2FClaude+Certified+Architect+%E2%80%93+Foundations+Exam+Guide.pdf",
+  "guideVersion": "1.0",
+  "guideEffectiveDate": "2026-07",
+  "numberOfItems": 60,
+  "itemFormat": "Multiple-choice and multiple-response items; each item states how many responses to select",
+  "examStructure": "4 scenarios drawn at random from a bank of 6 for each exam session",
+  "timeLimitMinutes": 120,
+  "passingScore": 720,
+  "scoreRange": [100, 1000],
+  "examFeeUSD": 125,
+  "validityMonths": 12,
+  "intendedAudience": "Solution architects with 6+ months practical experience building with Claude APIs, Agent SDK, Claude Code, and MCP in production environments.",
+  "domains": [
+    {
+      "id": 1,
+      "name": "Agentic Architecture & Orchestration",
+      "weightPercent": 27,
+      "taskStatements": [
+        { "id": "1.1", "statement": "Design and implement agentic loops for autonomous task execution", "summary": "stop_reason-driven loop control (tool_use vs end_turn), appending tool results to context, avoiding anti-patterns like parsing NL for termination or arbitrary iteration caps." },
+        { "id": "1.2", "statement": "Orchestrate multi-agent systems with coordinator-subagent patterns", "summary": "Hub-and-spoke architecture, isolated subagent context, dynamic subagent selection, iterative refinement loops, routing communication through the coordinator." },
+        { "id": "1.3", "statement": "Configure subagent invocation, context passing, and spawning", "summary": "Task tool + allowedTools, explicit context passing (no auto-inheritance), AgentDefinition config, fork-based sessions, parallel Task calls in a single response." },
+        { "id": "1.4", "statement": "Implement multi-step workflows with enforcement and handoff patterns", "summary": "Programmatic enforcement (hooks/prerequisite gates) vs prompt-based guidance; structured handoff summaries for human escalation." },
+        { "id": "1.5", "statement": "Apply Agent SDK hooks for tool call interception and data normalization", "summary": "PostToolUse hooks for normalization, tool-call interception hooks for policy enforcement, hooks vs prompt-based compliance." },
+        { "id": "1.6", "statement": "Design task decomposition strategies for complex workflows", "summary": "Fixed prompt chaining vs dynamic adaptive decomposition; per-file + cross-file review passes; adaptive investigation plans." },
+        { "id": "1.7", "statement": "Manage session state, resumption, and forking", "summary": "--resume <session-name>, fork_session for divergent exploration, informing resumed sessions of file changes, fresh session + injected summary vs stale resumption." }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Tool Design & MCP Integration",
+      "weightPercent": 18,
+      "taskStatements": [
+        { "id": "2.1", "statement": "Design effective tool interfaces with clear descriptions and boundaries", "summary": "Tool descriptions as the primary LLM tool-selection mechanism; avoiding ambiguous/overlapping descriptions; splitting generic tools into purpose-specific ones." },
+        { "id": "2.2", "statement": "Implement structured error responses for MCP tools", "summary": "MCP isError flag; transient/validation/business/permission error categories; isRetryable metadata; local recovery vs propagation." },
+        { "id": "2.3", "statement": "Distribute tools appropriately across agents and configure tool choice", "summary": "Too many tools degrades selection reliability; scoped tool access per role; tool_choice: auto/any/forced." },
+        { "id": "2.4", "statement": "Integrate MCP servers into Claude Code and agent workflows", "summary": "Project-scoped .mcp.json vs user-scoped ~/.claude.json; env var expansion for secrets; MCP resources for content catalogs." },
+        { "id": "2.5", "statement": "Select and apply built-in tools (Read, Write, Edit, Bash, Grep, Glob) effectively", "summary": "Grep for content search, Glob for path patterns, Read+Write fallback when Edit's unique-match fails, incremental codebase exploration." }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Claude Code Configuration & Workflows",
+      "weightPercent": 20,
+      "taskStatements": [
+        { "id": "3.1", "statement": "Configure CLAUDE.md files with appropriate hierarchy, scoping, and modular organization", "summary": "User/project/directory hierarchy, @import syntax, .claude/rules/ as alternative to monolithic CLAUDE.md, /memory command for diagnosis." },
+        { "id": "3.2", "statement": "Create and configure custom slash commands and skills", "summary": "Project-scoped .claude/commands/ vs user-scoped ~/.claude/commands/; SKILL.md frontmatter (context: fork, allowed-tools, argument-hint); personal skill variants." },
+        { "id": "3.3", "statement": "Apply path-specific rules for conditional convention loading", "summary": ".claude/rules/ YAML frontmatter with glob 'paths' fields; loading only for matching files; advantage over directory-level CLAUDE.md for scattered file types." },
+        { "id": "3.4", "statement": "Determine when to use plan mode vs direct execution", "summary": "Plan mode for architectural/multi-file complexity; direct execution for well-scoped single-file changes; Explore subagent for verbose discovery." },
+        { "id": "3.5", "statement": "Apply iterative refinement techniques for progressive improvement", "summary": "Concrete input/output examples, test-driven iteration, the interview pattern, batching interacting fixes vs sequential independent fixes." },
+        { "id": "3.6", "statement": "Integrate Claude Code into CI/CD pipelines", "summary": "-p/--print for non-interactive mode, --output-format json + --json-schema, CLAUDE.md for CI context, independent review sessions vs self-review." }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Prompt Engineering & Structured Output",
+      "weightPercent": 20,
+      "taskStatements": [
+        { "id": "4.1", "statement": "Design prompts with explicit criteria to improve precision and reduce false positives", "summary": "Explicit categorical criteria beats vague 'be conservative' instructions; false-positive rate impact on trust; explicit severity criteria with examples." },
+        { "id": "4.2", "statement": "Apply few-shot prompting to improve output consistency and quality", "summary": "Few-shot for consistent formatting, ambiguous-case handling, generalization to novel patterns, reduced hallucination in extraction." },
+        { "id": "4.3", "statement": "Enforce structured output using tool use and JSON schemas", "summary": "tool_use with JSON schemas eliminates syntax errors (not semantic ones); tool_choice auto/any/forced; optional/nullable fields; enum + 'other' + detail patterns." },
+        { "id": "4.4", "statement": "Implement validation, retry, and feedback loops for extraction quality", "summary": "Retry-with-error-feedback; limits of retry when info is simply absent; detected_pattern fields; calculated_total vs stated_total self-checks." },
+        { "id": "4.5", "statement": "Design efficient batch processing strategies", "summary": "Message Batches API: 50% cost savings, up to 24h window, no multi-turn tool calling, custom_id correlation; matching API to latency tolerance." },
+        { "id": "4.6", "statement": "Design multi-instance and multi-pass review architectures", "summary": "Self-review limitations vs independent review instances; per-file + cross-file integration passes; self-reported confidence for calibrated routing." }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Context Management & Reliability",
+      "weightPercent": 15,
+      "taskStatements": [
+        { "id": "5.1", "statement": "Manage conversation context to preserve critical information across long interactions", "summary": "Progressive summarization risks, lost-in-the-middle effect, trimming verbose tool outputs, persistent 'case facts' blocks, position-aware structuring." },
+        { "id": "5.2", "statement": "Design effective escalation and ambiguity resolution patterns", "summary": "Escalation triggers (explicit request, policy gaps, no progress); unreliability of sentiment/self-reported confidence; clarifying multiple-match ambiguity." },
+        { "id": "5.3", "statement": "Implement error propagation strategies across multi-agent systems", "summary": "Structured error context for coordinator recovery; access failures vs valid empty results; anti-patterns of silent suppression or full termination." },
+        { "id": "5.4", "statement": "Manage context effectively in large codebase exploration", "summary": "Context degradation in long sessions; scratchpad files; subagent delegation for verbose exploration; manifest-based crash recovery; /compact." },
+        { "id": "5.5", "statement": "Design human review workflows and confidence calibration", "summary": "Aggregate metrics masking per-segment failures; stratified sampling; field-level confidence calibrated on labeled sets; routing low-confidence cases." },
+        { "id": "5.6", "statement": "Preserve information provenance and handle uncertainty in multi-source synthesis", "summary": "Claim-source mappings; annotating conflicting statistics rather than picking one; requiring publication dates; format-appropriate rendering per content type." }
+      ]
+    }
+  ],
+  "scenarios": [
+    { "id": 1, "title": "Customer Support Resolution Agent", "primaryDomains": ["Agentic Architecture & Orchestration", "Tool Design & MCP Integration", "Context Management & Reliability"] },
+    { "id": 2, "title": "Code Generation with Claude Code", "primaryDomains": ["Claude Code Configuration & Workflows", "Context Management & Reliability"] },
+    { "id": 3, "title": "Multi-Agent Research System", "primaryDomains": ["Agentic Architecture & Orchestration", "Tool Design & MCP Integration", "Context Management & Reliability"] },
+    { "id": 4, "title": "Developer Productivity with Claude", "primaryDomains": ["Tool Design & MCP Integration", "Claude Code Configuration & Workflows", "Agentic Architecture & Orchestration"] },
+    { "id": 5, "title": "Claude Code for Continuous Integration", "primaryDomains": ["Claude Code Configuration & Workflows", "Prompt Engineering & Structured Output"] },
+    { "id": 6, "title": "Structured Data Extraction", "primaryDomains": ["Prompt Engineering & Structured Output", "Context Management & Reliability"] }
+  ],
+  "outOfScopeTopics": [
+    "Fine-tuning or training custom models",
+    "Claude API authentication, billing, or account management",
+    "Detailed implementation of specific programming languages/frameworks beyond tool/schema config",
+    "Deploying or hosting MCP servers (infra, networking, container orchestration)",
+    "Claude's internal architecture, training process, or model weights",
+    "Constitutional AI, RLHF, or safety training methodologies",
+    "Embedding models or vector database implementation details",
+    "Computer use (browser automation, desktop interaction)",
+    "Vision/image analysis capabilities",
+    "Streaming API implementation or server-sent events",
+    "Rate limiting, quotas, or API pricing calculations",
+    "OAuth, API key rotation, or authentication protocol details",
+    "Specific cloud provider configurations (AWS, GCP, Azure)",
+    "Performance benchmarking or model comparison metrics",
+    "Prompt caching implementation details (beyond knowing it exists)",
+    "Token counting algorithms or tokenization specifics"
+  ]
+}

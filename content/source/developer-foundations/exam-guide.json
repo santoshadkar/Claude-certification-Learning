@@ -1,0 +1,99 @@
+{
+  "slug": "developer-foundations",
+  "name": "Claude Certified Developer – Foundations",
+  "examCode": "CCDV-F",
+  "sourceUrl": "https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2F6nizmqk8tpzpfjvt6qmmav7rh%2Fpublic%2F1783542875%2FClaude+Certified+Developer+%E2%80%93+Foundations+Exam+Guide.pdf",
+  "guideVersion": "1.0",
+  "guideEffectiveDate": "2026-07",
+  "numberOfItems": 53,
+  "itemFormat": "Multiple-choice and multiple-response items; each item states how many responses to select",
+  "timeLimitMinutes": 120,
+  "passingScore": 720,
+  "scoreRange": [100, 1000],
+  "examFeeUSD": 125,
+  "validityMonths": 12,
+  "intendedAudience": "Technical professionals (AI/ML engineers, technical leads, senior software engineers) with 1-5 years software engineering experience and 6+ months hands-on Claude/LLM experience, proficient in Python and/or TypeScript.",
+  "domains": [
+    {
+      "id": 1,
+      "name": "Agents and Workflows",
+      "weightPercent": 14.7,
+      "skills": [
+        { "name": "Agent Architecture", "weightPercent": 4.5, "description": "Principles, patterns, and tradeoffs of agent and workflow architecture, including workflow-vs-agent decision criteria, manager/supervisor hierarchies, and the role of subagents." },
+        { "name": "Agent Construction with Claude", "weightPercent": 5.3, "description": "Methods, tools, and platforms for constructing Claude agents: the Claude Agent SDK, custom agent loops/harnesses, managed deployment models (self-hosted vs Anthropic-hosted), and hooks for deterministic actions." },
+        { "name": "Agent Patterns and Frameworks", "weightPercent": 4.9, "description": "Common agent design patterns (tool-use loops, sub-agents, memory, context-window management) and agentic frameworks (e.g., Strands, LangGraph, PydanticAI)." }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Applications and Integration",
+      "weightPercent": 33.1,
+      "skills": [
+        { "name": "Understanding Requirements", "weightPercent": 3.4, "description": "Functional and infrastructure requirements based on business requirements and solution architecture." },
+        { "name": "Systems Life Cycle", "weightPercent": 2.8, "description": "Systems life cycle management concepts and frameworks used to develop, implement, operate, and maintain IT systems." },
+        { "name": "Claude API Mechanics", "weightPercent": 6.8, "description": "Claude API behavior: messages, tools, streaming, vision, thinking, caching, third-party vendor access, Messages API data access patterns, batch API use, realtime-vs-batch tradeoffs." },
+        { "name": "Software Engineering Foundations", "weightPercent": 7.4, "description": "REST APIs, JSON, asynchronous programming, version control, SDLC integration, code review, small- and large-scale refactoring." },
+        { "name": "Claude Application Design", "weightPercent": 8.6, "description": "How Claude interprets instructions across interfaces (Claude Code, Desktop, claude.ai, API, SDKs), content boundaries, schema design, session hygiene, plugin management." },
+        { "name": "Configuration Management", "weightPercent": 4.1, "description": "CLAUDE.md files, settings.json, model version pinning, prompt versioning, plugin dependencies." }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Claude Code",
+      "weightPercent": 3.1,
+      "skills": [
+        { "name": "Claude Code Operation", "weightPercent": 3.1, "description": "Claude Code core components (Rules, Skills, Commands, Agents, Agent Memory), features (session management, slash commands, headless/streaming mode, auto-mode), CLAUDE.md hierarchy, repository initialization, settings.json configuration." }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Eval, Testing, and Debugging",
+      "weightPercent": 2.6,
+      "skills": [
+        { "name": "Debugging and Error Handling", "weightPercent": 2.6, "description": "Error type identification, recovery strategy selection, trace analysis to identify failure modes, problem origin isolation between integration layer and model output." }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Model Selection and Optimization",
+      "weightPercent": 16.8,
+      "skills": [
+        { "name": "LLM Fundamentals", "weightPercent": 5.2, "description": "Tokens, context windows, sampling, non-determinism, next-token generation; model options (fast mode, extended/adaptive thinking, effort levels); zero-shot/single-shot/multi-shot prompting." },
+        { "name": "Technical Fundamentals", "weightPercent": 6.1, "description": "Foundational engineering practices: integrating with SDKs that wrap REST APIs, websockets." },
+        { "name": "Model Selection and Tradeoffs", "weightPercent": 2.7, "description": "Opus vs Sonnet vs Haiku use cases, adaptive thinking support, quality/latency/cost tradeoffs, breaking changes across model releases." },
+        { "name": "Cost and Token Management", "weightPercent": 2.8, "description": "Token usage tracking, cost modeling, caching techniques (prompt caching, cache check-pointing)." }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Prompt and Context Engineering",
+      "weightPercent": 11.0,
+      "skills": [
+        { "name": "Context Engineering", "weightPercent": 3.8, "description": "Context window management, prevention of context drift/bloat (tool output pruning, compaction), context isolation via subagents/multi-step workflows." },
+        { "name": "Prompt Engineering", "weightPercent": 4.6, "description": "Instruction clarity, few-shot examples, system vs user placement, output constraints, prompt placement across components, iterative refinement, input sanitization." },
+        { "name": "Output Handling", "weightPercent": 2.6, "description": "Structured output patterns, response validation, defensive parsing, skepticism toward confident output." }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Security and Safety",
+      "weightPercent": 8.1,
+      "skills": [
+        { "name": "AI Application Security", "weightPercent": 3.2, "description": "Prompt injection awareness/mitigation, jailbreak defense, untrusted input handling, data leakage prevention, PII handling, authN/authZ/confidentiality/privacy/integrity." },
+        { "name": "Guardrails and Safe Deployment", "weightPercent": 2.3, "description": "Content policy, guardrail layering, secure-by-design principles (privacy, IAM, least privilege)." },
+        { "name": "Claude Hooks", "weightPercent": 1.0, "description": "Leveraging hooks for guardrails and safety controls to prevent destructive actions." },
+        { "name": "Identity, Secrets, and Key Management", "weightPercent": 1.6, "description": "Managing secrets/credentials/API keys, identity validation and authentication, access approval and monitoring." }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Tools and MCPs",
+      "weightPercent": 10.6,
+      "skills": [
+        { "name": "Tool Implementation", "weightPercent": 4.4, "description": "Tool use/function calling, configuration for external system interaction, tool description writing, error handling, usage patterns (agentic harness dispatch, client- vs server-side tools, approval patterns)." },
+        { "name": "MCP Server Development", "weightPercent": 2.1, "description": "Server authoring, deployment, integration with Claude applications, MCP resources/tools/prompts, communication patterns (stdio, sockets, client vs server)." },
+        { "name": "Agentic Customization", "weightPercent": 4.1, "description": "Tradeoffs among built-in Tools, custom Tools, Skills, and MCPs." }
+      ]
+    }
+  ]
+}
