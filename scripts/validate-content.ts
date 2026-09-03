@@ -10,6 +10,9 @@
  *  4. No near-duplicate stems within the same certification.
  *  5. Reports (and, with --require-minimums, enforces) each domain having at
  *     least content/targets.json's questionsPerDomainTarget questions.
+ *  6. Study modules: schema-valid, cross-referenced the same way, and every
+ *     domain across all four certifications has exactly one (hard failure
+ *     if not — unlike questions, study content isn't generated in batches).
  *
  * Run manually: npm run validate:content
  * Enforce completion gate: npm run validate:content -- --require-minimums
@@ -18,6 +21,8 @@ import fs from "node:fs";
 import path from "node:path";
 import { allQuestions } from "../content/questions";
 import { questionSchema, type QuestionInput } from "../content/schema/question";
+import { allStudyModules } from "../content/study";
+import { studyModuleSchema, type StudyModuleInput } from "../content/schema/study";
 import { loadExamGuides } from "./lib/exam-guides";
 import { findNearDuplicates } from "./lib/similarity";
 
@@ -146,6 +151,58 @@ if (anyBelowTarget) {
     console.log(`\n`);
     warn(message);
   }
+}
+
+// 6. Study modules: schema, cross-reference, and one-per-domain coverage
+console.log("\nValidating study modules");
+const validStudyModules: StudyModuleInput[] = [];
+for (const m of allStudyModules) {
+  const result = studyModuleSchema.safeParse(m);
+  if (!result.success) {
+    const label = `${(m as { certificationSlug?: unknown }).certificationSlug ?? "?"}/${(m as { domain?: unknown }).domain ?? "?"}`;
+    for (const issue of result.error.issues) {
+      fail(`[study:${label}] ${issue.path.join(".")}: ${issue.message}`);
+    }
+  } else {
+    validStudyModules.push(result.data);
+  }
+}
+
+for (const m of validStudyModules) {
+  const guide = examGuides[m.certificationSlug];
+  const domain = guide.domains.find((d) => d.name === m.domain);
+  if (!domain) {
+    fail(
+      `[study:${m.certificationSlug}/${m.domain}] domain does not match any domain in content/source/${m.certificationSlug}/exam-guide.json`
+    );
+    continue;
+  }
+  for (const concept of m.concepts) {
+    if (!domain.taskStatementKeys.includes(concept.taskStatement)) {
+      fail(
+        `[study:${m.certificationSlug}/${m.domain}] concept taskStatement "${concept.taskStatement}" is not a recognized key for this domain`
+      );
+    }
+  }
+}
+
+let missingStudyModule = false;
+for (const [certSlug, guide] of Object.entries(examGuides)) {
+  for (const domain of guide.domains) {
+    const modules = validStudyModules.filter(
+      (m) => m.certificationSlug === certSlug && m.domain === domain.name
+    );
+    if (modules.length === 0) {
+      missingStudyModule = true;
+      fail(`[study:${certSlug}/${domain.name}] no study module found for this domain`);
+    } else if (modules.length > 1) {
+      missingStudyModule = true;
+      fail(`[study:${certSlug}/${domain.name}] ${modules.length} study modules found — expected exactly 1`);
+    }
+  }
+}
+if (!missingStudyModule && validStudyModules.length === allStudyModules.length) {
+  ok(`All ${validStudyModules.length} study modules valid, cross-referenced, and covering every domain.`);
 }
 
 console.log("\n" + "-".repeat(60));

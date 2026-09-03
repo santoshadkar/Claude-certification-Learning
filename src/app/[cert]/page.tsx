@@ -61,7 +61,10 @@ export default function CertDashboardPage() {
       </div>
 
       <div className="flex flex-wrap gap-3">
-        <Link href={`/${cert.slug}/practice`} className={buttonVariants({ size: "lg" })}>
+        <Link href={`/${cert.slug}/study`} className={buttonVariants({ size: "lg" })}>
+          Study
+        </Link>
+        <Link href={`/${cert.slug}/practice`} className={buttonVariants({ size: "lg", variant: "outline" })}>
           Start practice
         </Link>
         <Link
