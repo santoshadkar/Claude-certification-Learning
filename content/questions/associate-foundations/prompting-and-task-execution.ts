@@ -10,7 +10,7 @@ export const questions: QuestionInput[] = [
     stem:
       "An HR coordinator asks Claude: 'Write an onboarding email.' The result is generic and doesn't mention the company's actual first-day process. What is the most likely reason, and the best fix?",
     options: [
-      { id: "A", text: "The prompt lacked context — the new hire's role, start date, and the company's actual first-day steps — and adding that context would produce a usable draft." },
+      { id: "A", text: "The prompt lacked context, like the new hire's role, start date, and the company's actual first-day process." },
       { id: "B", text: "Claude simply isn't capable of writing onboarding emails well; a different tool is needed." },
       { id: "C", text: "Onboarding emails are too company-specific for any AI tool to help with." },
       { id: "D", text: "The request should be repeated exactly as-is several times until the output improves." },
@@ -35,7 +35,7 @@ export const questions: QuestionInput[] = [
       { id: "A", text: "Nothing — the summary is accurate, so the prompt was fine." },
       { id: "B", text: "A request to translate the clause into plain English only." },
       { id: "C", text: "An instruction to make the summary shorter." },
-      { id: "D", text: "A specific statement of what to focus on (liability caps) so the summary targets the actual concern, not just the general topic." },
+      { id: "D", text: "A specific instruction to focus on liability caps, the actual concern." },
     ],
     correctOptionIds: ["D"],
     selectCount: 1,
@@ -55,7 +55,7 @@ export const questions: QuestionInput[] = [
       "A support engineer asks Claude to 'write a bug report' about an issue they just described verbally in one sentence. The generated report is vague and missing reproduction steps. What is the best way to fix the prompt?",
     options: [
       { id: "A", text: "Ask Claude to make the report longer." },
-      { id: "B", text: "Provide the actual details a bug report needs — steps to reproduce, expected vs. actual behavior, environment — since Claude can't include specifics it was never given." },
+      { id: "B", text: "Provide the missing details: reproduction steps, expected vs. actual behavior, and environment." },
       { id: "C", text: "Request the report in a different file format." },
       { id: "D", text: "Ask a coworker to write the bug report manually instead." },
     ],
@@ -100,7 +100,7 @@ export const questions: QuestionInput[] = [
     options: [
       { id: "A", text: "A request to use more exclamation points." },
       { id: "B", text: "A word count limit." },
-      { id: "C", text: "Guidance on the desired tone/style, ideally with a short example of how the company usually writes." },
+      { id: "C", text: "Guidance on the desired tone, ideally with a short example to match." },
       { id: "D", text: "Nothing — tone can't be controlled through prompting." },
     ],
     correctOptionIds: ["C"],
@@ -120,7 +120,7 @@ export const questions: QuestionInput[] = [
     stem:
       "A financial analyst asks Claude to 'turn this spreadsheet data into a summary for the board.' The result is a dense paragraph full of numbers that would take the board too long to parse. What best explains the gap, and what should change in the prompt?",
     options: [
-      { id: "A", text: "The prompt didn't specify the audience's needs (board members, time-constrained, decision-focused) or a format (e.g., 3-4 bullets highlighting risk and opportunity) — adding both would target the actual use case." },
+      { id: "A", text: "The prompt didn't specify the audience's needs or a clear format, like a short bulleted summary." },
       { id: "B", text: "The spreadsheet itself needs to be simplified before Claude can help." },
       { id: "C", text: "The analyst should manually rewrite the output every time instead of adjusting the prompt." },
       { id: "D", text: "Claude cannot produce board-ready summaries from spreadsheet data under any circumstances." },
@@ -145,7 +145,7 @@ export const questions: QuestionInput[] = [
       { id: "A", text: "Nothing — specs always require some invented detail." },
       { id: "B", text: "A request to add more diagrams." },
       { id: "C", text: "A request for a longer, more detailed document." },
-      { id: "D", text: "The actual requirements and constraints the team agreed on, so Claude has real information to work from instead of filling gaps with plausible guesses." },
+      { id: "D", text: "The actual requirements and constraints the team already agreed on." },
     ],
     correctOptionIds: ["D"],
     selectCount: 1,
@@ -165,7 +165,7 @@ export const questions: QuestionInput[] = [
       "A nonprofit program officer asks Claude, in one message, to 'research funders, draft a grant proposal, and write a budget justification.' The resulting output is shallow across all three parts. What would most improve the result?",
     options: [
       { id: "A", text: "Ask Claude to prioritize whichever part it thinks is most important." },
-      { id: "B", text: "Break the request into sequential steps — research funders first, review that output, then draft the proposal, then the budget — so each step builds on a verified prior step." },
+      { id: "B", text: "Break the request into sequential steps: research, then proposal, then budget." },
       { id: "C", text: "Drop the budget justification entirely since it's the least important part." },
       { id: "D", text: "Ask for all three parts again in the same single message, but request 'more detail' this time." },
     ],
@@ -188,7 +188,7 @@ export const questions: QuestionInput[] = [
     options: [
       { id: "A", text: "Skip the inventory step since it's the least exciting part of the plan." },
       { id: "B", text: "Ask Claude to write the communication plan first, since that's the most visible deliverable." },
-      { id: "C", text: "Work through it in stages — inventory first, then risk assessment based on that inventory, then rollout, then communications — reviewing each stage before moving to the next." },
+      { id: "C", text: "Work through it in stages: inventory, then risk, then rollout, then communications." },
       { id: "D", text: "Ask for the entire migration plan in a single prompt to save time." },
     ],
     correctOptionIds: ["C"],
@@ -211,7 +211,7 @@ export const questions: QuestionInput[] = [
       { id: "A", text: "Review the venue research output before moving on to outreach drafts, to catch errors early." },
       { id: "B", text: "Draft the run-of-show before the venue is chosen, since scheduling doesn't depend on the venue." },
       { id: "C", text: "Ask for all three deliverables in one message to avoid multiple back-and-forth exchanges." },
-      { id: "D", text: "Complete venue research first, since speaker outreach content (dates, capacity) depends on the venue being settled." },
+      { id: "D", text: "Complete venue research first, since outreach content depends on the venue being settled." },
     ],
     correctOptionIds: ["A","D"],
     selectCount: 2,
@@ -230,7 +230,7 @@ export const questions: QuestionInput[] = [
     stem:
       "A sales manager wants a single message to produce: a quarterly performance summary, a list of underperforming accounts, and coaching talking points for each rep. What is the risk of asking for all three in one prompt without any structure?",
     options: [
-      { id: "A", text: "The output may treat all three parts with similar, shallow depth instead of the more careful analysis each part actually deserves." },
+      { id: "A", text: "The output may treat all three parts with similar, shallow depth." },
       { id: "B", text: "Claude will refuse the request outright." },
       { id: "C", text: "The output will always come back in the wrong order." },
       { id: "D", text: "There is no risk; Claude handles multi-part requests identically regardless of structure." },
@@ -255,7 +255,7 @@ export const questions: QuestionInput[] = [
       { id: "A", text: "Ask Claude to pick the 3 most important contracts and ignore the rest." },
       { id: "B", text: "Review the contracts in a random order with no structure." },
       { id: "C", text: "Paste all 12 contracts into one message and ask for a single combined analysis." },
-      { id: "D", text: "Review each contract individually for the clause, then run a separate pass comparing findings across all 12 for patterns." },
+      { id: "D", text: "Review each contract individually, then run a separate pass comparing findings for patterns." },
     ],
     correctOptionIds: ["D"],
     selectCount: 1,
@@ -275,7 +275,7 @@ export const questions: QuestionInput[] = [
       "A retail operations manager wants an inventory audit covering discrepancies, root causes, and corrective actions across 6 store locations. What is the best first step?",
     options: [
       { id: "A", text: "Ask for corrective actions first, before discrepancies or causes are identified." },
-      { id: "B", text: "Identify and confirm the actual discrepancies per location first, since root causes and corrective actions should be grounded in real findings, not assumed ones." },
+      { id: "B", text: "Identify and confirm the actual discrepancies per location first, before assigning causes." },
       { id: "C", text: "Skip straight to a company-wide summary without location-level detail." },
       { id: "D", text: "Write a generic corrective-action template that applies to all 6 locations regardless of their specific issues." },
     ],
@@ -298,7 +298,7 @@ export const questions: QuestionInput[] = [
     options: [
       { id: "A", text: "Only write notes for the 2 modules with the most changes." },
       { id: "B", text: "Write the notes in whatever order the modules happen to be mentioned." },
-      { id: "C", text: "Draft notes for each module individually using a consistent template, then do one pass to ensure consistent tone and formatting across all of them." },
+      { id: "C", text: "Draft notes per module using a consistent template, then do one consistency pass." },
       { id: "D", text: "Ask for release notes for all 8 modules in a single request with no per-module structure." },
     ],
     correctOptionIds: ["C"],
@@ -318,7 +318,7 @@ export const questions: QuestionInput[] = [
     stem:
       "A content writer gets a blog draft back from Claude that's well-organized but too formal for the brand's casual voice. What is the most effective next step?",
     options: [
-      { id: "A", text: "Tell Claude specifically that the tone should be more casual, keeping the structure and content that already worked." },
+      { id: "A", text: "Tell Claude specifically to make the tone more casual, keeping the rest as-is." },
       { id: "B", text: "Accept the draft as-is since tone rarely matters for blog content." },
       { id: "C", text: "Manually rewrite the entire draft without giving Claude any feedback." },
       { id: "D", text: "Discard the draft and start over with an entirely new prompt from scratch." },
@@ -343,7 +343,7 @@ export const questions: QuestionInput[] = [
       { id: "A", text: "The inconsistency is random and no prompt change would help." },
       { id: "B", text: "Claude is malfunctioning and needs to be restarted." },
       { id: "C", text: "Summaries cannot be controlled for length under any circumstances." },
-      { id: "D", text: "'Short' is ambiguous — specifying an actual constraint (e.g., '2-3 sentences') would produce more consistent results." },
+      { id: "D", text: "'Short' is ambiguous; specifying an actual constraint would produce consistent results." },
     ],
     correctOptionIds: ["D"],
     selectCount: 1,
@@ -363,7 +363,7 @@ export const questions: QuestionInput[] = [
       "A first draft of a client proposal from Claude is 90% usable but missing a pricing section entirely. What's the most efficient next step?",
     options: [
       { id: "A", text: "Regenerate the entire proposal from scratch in case something else is also wrong." },
-      { id: "B", text: "Ask Claude to add just the missing pricing section, referencing the existing draft, rather than regenerating the whole proposal." },
+      { id: "B", text: "Ask Claude to add just the missing pricing section to the existing draft." },
       { id: "C", text: "Ask Claude to guess at pricing without providing any pricing information." },
       { id: "D", text: "Write the pricing section manually and leave the rest of the workflow unchanged for next time." },
     ],
@@ -387,7 +387,7 @@ export const questions: QuestionInput[] = [
       { id: "A", text: "Regenerate the review with a completely unrelated prompt about a different employee." },
       { id: "B", text: "Ask Claude to tighten the draft to a specific target length." },
       { id: "C", text: "Ask Claude to use more sophisticated vocabulary throughout." },
-      { id: "D", text: "Ask Claude to include specific, concrete examples of the employee's work instead of general statements." },
+      { id: "D", text: "Ask Claude to include specific, concrete examples of the employee's work." },
     ],
     correctOptionIds: ["B","D"],
     selectCount: 2,
@@ -408,7 +408,7 @@ export const questions: QuestionInput[] = [
     options: [
       { id: "A", text: "Leave the macro as-is since it was correct when first written." },
       { id: "B", text: "Ask customers to disregard any outdated details in the reply." },
-      { id: "C", text: "Update the prompt/macro with current product details and iterate on it, since a one-time draft doesn't stay accurate as things change." },
+      { id: "C", text: "Update the prompt/macro with current product details, since old drafts go stale." },
       { id: "D", text: "Delete the macro entirely and have every reply written manually going forward." },
     ],
     correctOptionIds: ["C"],
@@ -428,7 +428,7 @@ export const questions: QuestionInput[] = [
     stem:
       "An analyst asks Claude for a report, then in the same conversation gives two follow-up instructions that contradict each other ('make it more detailed' and later 'make it shorter') without clarifying which should take priority. What is the most likely result, and the best fix?",
     options: [
-      { id: "A", text: "Claude may resolve the conflict arbitrarily; the analyst should clarify which instruction takes priority, or restate a single clear target instead of leaving both in effect." },
+      { id: "A", text: "Claude may resolve the conflict arbitrarily; the analyst should clarify which instruction wins." },
       { id: "B", text: "The only fix is to start an entirely new conversation." },
       { id: "C", text: "Contradictory instructions are automatically ignored and have no effect on the output." },
       { id: "D", text: "Claude will always correctly guess which instruction the analyst really meant." },
@@ -453,7 +453,7 @@ export const questions: QuestionInput[] = [
       { id: "A", text: "Assume the whole outline is unreliable and abandon it." },
       { id: "B", text: "Remove the activity manually and never mention the issue to Claude." },
       { id: "C", text: "Ask for an entirely new outline on a different topic." },
-      { id: "D", text: "Point out specifically that the one activity doesn't fit the grade level and ask for a replacement, keeping the rest of the outline." },
+      { id: "D", text: "Point out the one activity that doesn't fit and ask for a replacement, keeping the rest." },
     ],
     correctOptionIds: ["D"],
     selectCount: 1,
@@ -473,7 +473,7 @@ export const questions: QuestionInput[] = [
       "A product team asks Claude to 'brainstorm names for the new feature' but the first response gives only one polished suggestion. What adjustment best fits a brainstorming task?",
     options: [
       { id: "A", text: "Accept the single suggestion since brainstorming should produce one best answer." },
-      { id: "B", text: "Ask explicitly for a wide range of options (e.g., 15-20 varied names) before narrowing down to favorites." },
+      { id: "B", text: "Ask explicitly for a wide range of options before narrowing down to favorites." },
       { id: "C", text: "Switch immediately to asking for a final decision instead of more options." },
       { id: "D", text: "Ask Claude to make the one suggestion longer." },
     ],
@@ -496,7 +496,7 @@ export const questions: QuestionInput[] = [
     options: [
       { id: "A", text: "Ask for the research in a shorter format only." },
       { id: "B", text: "Ask Claude to research a different competitor instead." },
-      { id: "C", text: "Add explicit scope boundaries (e.g., focus specifically on the competitor's pricing tiers and recent price changes) to match the actual research goal." },
+      { id: "C", text: "Add explicit scope boundaries, like focusing on pricing tiers and recent changes." },
       { id: "D", text: "Nothing — broad research is always more valuable than focused research." },
     ],
     correctOptionIds: ["C"],
@@ -516,7 +516,7 @@ export const questions: QuestionInput[] = [
     stem:
       "A copywriter asks Claude to draft ad copy matching the brand's playful, pun-heavy style, but gives no examples of that style. The draft comes back generic. What adaptation fits a drafting task best here?",
     options: [
-      { id: "A", text: "Provide one or two examples of the brand's actual past copy so Claude has a concrete style target to match." },
+      { id: "A", text: "Provide one or two examples of the brand's actual past copy to match." },
       { id: "B", text: "Give up on matching brand voice and accept generic copy." },
       { id: "C", text: "Ask for the copy to be 'more playful' with no further detail, repeated several times." },
       { id: "D", text: "Ask for a completely different type of content instead." },
@@ -541,7 +541,7 @@ export const questions: QuestionInput[] = [
       { id: "A", text: "Accept the narrative since it sounds reasonable." },
       { id: "B", text: "Ask for a shorter answer instead." },
       { id: "C", text: "Switch to asking for a brainstorm of possible causes instead of an analysis." },
-      { id: "D", text: "Explicitly ask Claude to base its analysis on the specific data provided and show its reasoning/evidence for each claim." },
+      { id: "D", text: "Ask Claude to base the analysis on the actual data and show its reasoning." },
     ],
     correctOptionIds: ["D"],
     selectCount: 1,
@@ -583,7 +583,7 @@ export const questions: QuestionInput[] = [
       "A consultant needs Claude to both research a market and then draft a client-facing summary of the findings. What is the best sequencing given the two different task types involved?",
     options: [
       { id: "A", text: "Do both in a single combined prompt with no sequencing." },
-      { id: "B", text: "Do the scoped research first, review the findings, then draft the client summary based on the verified research." },
+      { id: "B", text: "Do the scoped research first, review it, then draft the client summary." },
       { id: "C", text: "Ask for the polished client draft first, then do the research afterward to check it." },
       { id: "D", text: "Skip the research step, since drafting doesn't require it." },
     ],
@@ -606,7 +606,7 @@ export const questions: QuestionInput[] = [
     options: [
       { id: "A", text: "The implementation plan will always be technically incorrect." },
       { id: "B", text: "Claude will refuse to do either task." },
-      { id: "C", text: "The brainstorm may get collapsed too early into one option before a genuinely wide range of ideas was considered, undermining the value of brainstorming first." },
+      { id: "C", text: "The brainstorm may get collapsed too early, before enough ideas were considered." },
       { id: "D", text: "No risk — brainstorming and implementation planning always work equally well combined." },
     ],
     correctOptionIds: ["C"],

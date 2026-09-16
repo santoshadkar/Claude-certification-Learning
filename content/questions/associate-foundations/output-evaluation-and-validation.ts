@@ -10,7 +10,7 @@ export const questions: QuestionInput[] = [
     stem:
       "Claude summarizes a 40-page vendor contract into five bullet points highlighting the key terms. All five bullets are factually correct, but the summary omits an auto-renewal clause that requires 90 days' notice to cancel. What best describes this output?",
     options: [
-      { id: "A", text: "The output is accurate but incomplete, and the missing auto-renewal clause could have real consequences if not caught." },
+      { id: "A", text: "The output is accurate but incomplete, missing a clause with real consequences." },
       { id: "B", text: "The output is a hallucination since it left out contract terms." },
       { id: "C", text: "The output is fully reliable since every stated bullet is accurate." },
       { id: "D", text: "The output should be discarded entirely and redone from scratch." },
@@ -35,7 +35,7 @@ export const questions: QuestionInput[] = [
       { id: "A", text: "Ask Claude to regenerate the paragraph with a different statistic that sounds more conservative." },
       { id: "B", text: "The statistic is almost certainly accurate, since Claude wouldn't cite a specific source and number without evidence." },
       { id: "C", text: "Reword the sentence to remove the citation but keep the 73% figure, since the number itself is probably fine." },
-      { id: "D", text: "This is a likely hallucination — a specific-sounding statistic and citation with no traceable source — and it should be verified against the actual study before being used anywhere." },
+      { id: "D", text: "This is a likely hallucination — a specific, untraceable statistic — and should be verified before use." },
     ],
     correctOptionIds: ["D"],
     selectCount: 1,
@@ -77,7 +77,7 @@ export const questions: QuestionInput[] = [
       "Claude drafts a response to a job candidate rejecting their application, including a specific reason: 'unfortunately your visa sponsorship requirements do not align with our current hiring budget.' Before this is sent, what is the most important consideration?",
     options: [
       { id: "A", text: "Send it as-is, since Claude phrased it professionally." },
-      { id: "B", text: "This reason touches employment and immigration-related decisions, which likely require HR/legal review before being put in writing to a candidate, given the legal risk involved." },
+      { id: "B", text: "This touches immigration and likely needs HR/legal review first." },
       { id: "C", text: "Shorten the message so it takes less time to review." },
       { id: "D", text: "Ask Claude to make the rejection reason vaguer so it's harder to challenge." },
     ],
@@ -100,7 +100,7 @@ export const questions: QuestionInput[] = [
     options: [
       { id: "A", text: "Only write the executive version, since engineers can infer technical detail from context." },
       { id: "B", text: "Send the identical technical write-up to both audiences to ensure consistency." },
-      { id: "C", text: "Ask Claude to produce two versions: a detailed technical version for engineering, and a brief, decision-focused version for executives." },
+      { id: "C", text: "Produce two versions: a detailed technical one for engineering, a brief one for executives." },
       { id: "D", text: "Only write the technical version, since executives can ask follow-up questions if confused." },
     ],
     correctOptionIds: ["C"],
@@ -120,7 +120,7 @@ export const questions: QuestionInput[] = [
     stem:
       "An associate asks Claude to generate a 15-row table of product SKUs, prices, and stock counts that will be imported directly into inventory software. Which output format is most appropriate?",
     options: [
-      { id: "A", text: "An artifact containing structured data (e.g., a table or CSV) that can be reviewed and exported cleanly." },
+      { id: "A", text: "An artifact with structured data, like a table or CSV, that can be reviewed and exported." },
       { id: "B", text: "A bulleted list formatted for a slide presentation." },
       { id: "C", text: "Plain inline chat text with the values separated by commas in a single line." },
       { id: "D", text: "A conversational paragraph describing the products." },
@@ -145,7 +145,7 @@ export const questions: QuestionInput[] = [
       { id: "A", text: "The report is unusable and should be entirely discarded." },
       { id: "B", text: "22% growth figures are always suspicious and should be assumed wrong." },
       { id: "C", text: "The report should be shortened further to reduce the chance of errors." },
-      { id: "D", text: "An accurate statement can still be incomplete in a way that leads to a wrong conclusion if important context is missing." },
+      { id: "D", text: "An accurate statement can still mislead if important context is missing." },
     ],
     correctOptionIds: ["D"],
     selectCount: 1,
@@ -165,7 +165,7 @@ export const questions: QuestionInput[] = [
       "Claude generates meeting notes listing every decision made in a planning meeting, correctly, but without noting who owns each follow-up action. What should the associate do before circulating the notes?",
     options: [
       { id: "A", text: "Circulate the notes as-is, since every decision listed is accurate." },
-      { id: "B", text: "Add the missing owner for each action item before circulating, since notes without ownership are less actionable even if the decisions themselves are correctly captured." },
+      { id: "B", text: "Add the missing owner for each action item before circulating the notes." },
       { id: "C", text: "Ask Claude to rewrite the notes in a more formal tone instead." },
       { id: "D", text: "Delete the decisions that don't have a clear owner." },
     ],
@@ -188,7 +188,7 @@ export const questions: QuestionInput[] = [
     options: [
       { id: "A", text: "Nothing was missing, since all historical figures were accurate." },
       { id: "B", text: "A longer executive summary." },
-      { id: "C", text: "An explicit statement of the assumptions underlying the projection, which is necessary for the document to actually support a decision." },
+      { id: "C", text: "The assumptions behind the projected growth rate." },
       { id: "D", text: "More historical data points." },
     ],
     correctOptionIds: ["C"],
@@ -208,8 +208,8 @@ export const questions: QuestionInput[] = [
     stem:
       "Claude generates a product comparison table with accurate feature checkmarks for three competitors, but the original request also asked for a pricing column, which is missing. Which two actions are appropriate? (Select 2)",
     options: [
-      { id: "A", text: "Compare the output against the original request's full scope to confirm the pricing column was actually asked for and is missing." },
-      { id: "B", text: "Ask Claude to add the missing pricing column rather than treating the feature comparison as the complete deliverable." },
+      { id: "A", text: "Compare the output against the original request's full scope to confirm what's missing." },
+      { id: "B", text: "Ask Claude to add the missing pricing column rather than treating the table as complete." },
       { id: "C", text: "Publish the table as-is, since the feature information it does contain is accurate." },
       { id: "D", text: "Discard the entire table and start the comparison over from scratch." },
     ],
@@ -230,7 +230,7 @@ export const questions: QuestionInput[] = [
     stem:
       "A legal associate reviewing a Claude-drafted memo notices it cites 'Smith v. Halloway Corp (2019)' to support a point, but a search turns up no such case. What is the most likely explanation?",
     options: [
-      { id: "A", text: "This is a likely hallucination — a fabricated, specific-sounding case citation — and the memo's legal claims should not be used until this is resolved." },
+      { id: "A", text: "This is a likely hallucination — a fabricated case citation — that needs resolving first." },
       { id: "B", text: "The memo should be used as-is since the surrounding legal reasoning is probably still sound." },
       { id: "C", text: "The case exists but is simply hard to find with a basic search." },
       { id: "D", text: "Case names are always paraphrased by Claude, so this is expected and fine." },
@@ -255,7 +255,7 @@ export const questions: QuestionInput[] = [
       { id: "A", text: "Pick whichever number sounds more reasonable and use that going forward." },
       { id: "B", text: "Average the two numbers together." },
       { id: "C", text: "Ignore the discrepancy since both numbers are in the same document." },
-      { id: "D", text: "Flag the inconsistency and reconcile the two figures against the actual source data before using either number." },
+      { id: "D", text: "Flag the inconsistency and reconcile both figures against the actual source data." },
     ],
     correctOptionIds: ["D"],
     selectCount: 1,
@@ -275,7 +275,7 @@ export const questions: QuestionInput[] = [
       "A hiring team uses Claude to screen resumes and notices candidates from a small set of universities are consistently ranked higher, even when their described experience is comparable to other candidates. What is the most likely concern?",
     options: [
       { id: "A", text: "The issue is not correctable and resume screening should be abandoned entirely." },
-      { id: "B", text: "This may reflect a bias where university name acts as a proxy for factors unrelated to actual job-relevant experience, and the screening criteria should be reviewed and adjusted." },
+      { id: "B", text: "This may reflect bias — university name acting as a proxy unrelated to actual job experience." },
       { id: "C", text: "No concern — university prestige is a valid, objective measure of candidate quality." },
       { id: "D", text: "Switching to a faster model will resolve the pattern." },
     ],
@@ -296,9 +296,9 @@ export const questions: QuestionInput[] = [
     stem:
       "A customer-sentiment report drafted by Claude includes the line: 'One customer wrote, \"this is the worst support experience of my life.\"' The associate cannot find this exact quote anywhere in the source feedback data provided. Which two responses are appropriate? (Select 2)",
     options: [
-      { id: "A", text: "Search the actual source feedback data to confirm whether any comment closely matches this sentiment before keeping a similar claim in the report." },
+      { id: "A", text: "Search the actual source data to confirm whether any comment closely matches this sentiment." },
       { id: "B", text: "Keep the quote as written, since it plausibly reflects the general sentiment even if not a real quote." },
-      { id: "C", text: "Treat the quote as a likely fabrication and remove or verify it against the actual source data before the report is used." },
+      { id: "C", text: "Treat the quote as a likely fabrication and remove or verify it before the report is used." },
       { id: "D", text: "Attribute the quote to a specific real customer at random so it appears sourced." },
     ],
     correctOptionIds: ["A","C"],
@@ -320,7 +320,7 @@ export const questions: QuestionInput[] = [
     options: [
       { id: "A", text: "Round the number to 30% to be safe." },
       { id: "B", text: "Send the update and correct it later if anyone questions the figure." },
-      { id: "C", text: "Verify the 31% figure directly against the actual financial statements before it's sent to investors." },
+      { id: "C", text: "Verify the 31% figure against the actual financial statements first." },
       { id: "D", text: "Ask Claude to double-check its own number and trust the answer if it reaffirms 31%." },
     ],
     correctOptionIds: ["C"],
@@ -340,7 +340,7 @@ export const questions: QuestionInput[] = [
     stem:
       "An HR policy document drafted by Claude references 'Section 12.4 of the updated labor code' to justify a new leave policy. What should happen before this document is published internally?",
     options: [
-      { id: "A", text: "Check the actual labor code text to confirm Section 12.4 says what the document claims before publishing." },
+      { id: "A", text: "Check the actual labor code text to confirm Section 12.4 says what's claimed." },
       { id: "B", text: "Remove the section reference entirely and keep the rest of the claim unchanged." },
       { id: "C", text: "Ask Claude for a different section number instead." },
       { id: "D", text: "Publish it, since HR policy language is usually written this way." },
@@ -365,7 +365,7 @@ export const questions: QuestionInput[] = [
       { id: "A", text: "Remove all mention of education to avoid the issue entirely." },
       { id: "B", text: "Publish it, since Claude wrote it in a confident, professional tone." },
       { id: "C", text: "Assume it's correct since it's a minor detail." },
-      { id: "D", text: "Confirm the credential directly with the speaker or their official bio before publishing, since an incorrect credential claim is easily checkable and embarrassing if wrong." },
+      { id: "D", text: "Confirm the credential with the speaker or their official bio before publishing." },
     ],
     correctOptionIds: ["D"],
     selectCount: 1,
@@ -384,10 +384,10 @@ export const questions: QuestionInput[] = [
     stem:
       "A wellness newsletter draft from Claude includes the claim: 'studies show drinking green tea reduces stress hormones by 40%.' Which two actions reflect appropriate validation before publishing? (Select 2)",
     options: [
-      { id: "A", text: "If no specific study can be found or verified, soften or remove the specific statistic rather than publishing an unverified number." },
+      { id: "A", text: "If no study can be found or verified, soften or remove the specific statistic." },
       { id: "B", text: "Publish the claim as-is, since it sounds scientifically plausible." },
       { id: "C", text: "Change the number to a rounder figure like 50% to make it sound more polished." },
-      { id: "D", text: "Locate and check the actual study being referenced, if one exists, to confirm the 40% figure and its context." },
+      { id: "D", text: "Locate and check the actual study, if one exists, to confirm the 40% figure." },
     ],
     correctOptionIds: ["A","D"],
     selectCount: 2,
@@ -407,7 +407,7 @@ export const questions: QuestionInput[] = [
       "An internal wellness newsletter draft includes specific health advice ('this stretch routine can help prevent lower back injury') generated by Claude for a general employee audience. What is the most appropriate step before distribution?",
     options: [
       { id: "A", text: "Remove all specifics and just say 'stretch regularly' to avoid any review." },
-      { id: "B", text: "Have someone with relevant expertise (e.g., HR wellness lead or a medical/fitness professional) review health-adjacent advice before it goes to employees, given the liability and accuracy stakes." },
+      { id: "B", text: "Have someone with relevant expertise review the advice first." },
       { id: "C", text: "Ask Claude to add a disclaimer and skip any human review." },
       { id: "D", text: "Distribute it immediately since it's just an internal newsletter." },
     ],
@@ -430,7 +430,7 @@ export const questions: QuestionInput[] = [
     options: [
       { id: "A", text: "No review is needed if the statement sounds sincere." },
       { id: "B", text: "None — a quick read-through by the drafting associate is sufficient." },
-      { id: "C", text: "Legal and communications review before release, given the public, high-stakes nature of a statement about a data incident." },
+      { id: "C", text: "Legal and communications review, given the public, high-stakes nature of the statement." },
       { id: "D", text: "Only a grammar check, since the content itself is straightforward." },
     ],
     correctOptionIds: ["C"],
@@ -450,7 +450,7 @@ export const questions: QuestionInput[] = [
     stem:
       "Claude drafts a short internal summary of a routine weekly team status meeting, with no sensitive, financial, or external-facing content. What level of review is appropriate before it's shared with the team?",
     options: [
-      { id: "A", text: "A normal proofread for clarity and accuracy against what was actually discussed is enough; this doesn't need legal, compliance, or executive review." },
+      { id: "A", text: "A normal proofread for clarity and accuracy is enough; heavier review isn't needed here." },
       { id: "B", text: "It should be escalated to executive leadership before being shared with the team." },
       { id: "C", text: "It requires the same legal and compliance review as an external press release." },
       { id: "D", text: "It should not be shared until a formal risk assessment is completed." },
@@ -473,9 +473,9 @@ export const questions: QuestionInput[] = [
       "Claude drafts a severance offer letter for a departing employee, including a specific severance amount and a release-of-claims clause. Which two considerations correctly indicate this needs human review before it's sent? (Select 2)",
     options: [
       { id: "A", text: "It's addressed to a single named individual rather than a general audience." },
-      { id: "B", text: "It includes legally significant terms (a release of claims) that carry real legal consequences for both parties." },
+      { id: "B", text: "It includes a legally significant release of claims with real consequences for both parties." },
       { id: "C", text: "It was drafted quickly, which is reason enough on its own regardless of content." },
-      { id: "D", text: "It involves a specific financial figure tied to an individual employee's termination, which HR/legal should confirm against policy and any negotiated terms." },
+      { id: "D", text: "It involves a specific severance figure that HR/legal should confirm against policy." },
     ],
     correctOptionIds: ["B","D"],
     selectCount: 2,
@@ -497,7 +497,7 @@ export const questions: QuestionInput[] = [
       { id: "A", text: "Only publish the customer-facing version and skip internal notes entirely." },
       { id: "B", text: "Use the same technical release notes for both audiences to save time." },
       { id: "C", text: "Only write the internal engineering notes, since customers rarely read changelogs." },
-      { id: "D", text: "Write the engineering notes with implementation detail, and a separate customer-facing version focused on what changed for the user, in plain language." },
+      { id: "D", text: "Write engineering notes with detail, plus a plain-language customer version." },
     ],
     correctOptionIds: ["D"],
     selectCount: 1,
@@ -517,7 +517,7 @@ export const questions: QuestionInput[] = [
       "A research finding needs to be shared with (1) a peer-review scientific audience and (2) a general-public blog readership. What adaptation is most appropriate?",
     options: [
       { id: "A", text: "Only write the public blog version, since scientific readers can look up the original data themselves." },
-      { id: "B", text: "Write a detailed, methodology-focused version for the scientific audience, and a separate plain-language version emphasizing practical implications for the public blog." },
+      { id: "B", text: "Write a methodology-focused version for scientists, and a plain-language version for the public blog." },
       { id: "C", text: "Write one version with full statistical methodology and jargon, and use it unchanged for both audiences." },
       { id: "D", text: "Simplify the finding so much for both audiences that key nuance is lost even for the scientific readers." },
     ],
@@ -539,8 +539,8 @@ export const questions: QuestionInput[] = [
       "A new expense-reporting policy needs to be explained to (1) frontline staff who will use it day-to-day and (2) senior leadership approving the rollout. Which two adaptations are appropriate? (Select 2)",
     options: [
       { id: "A", text: "Use the exact same document for both audiences to ensure the message is identical." },
-      { id: "B", text: "For senior leadership, focus on the rationale, expected impact, and rollout timeline rather than step-by-step submission instructions." },
-      { id: "C", text: "For frontline staff, focus on clear step-by-step instructions for how to submit expenses under the new policy." },
+      { id: "B", text: "For leadership, focus on the rationale, expected impact, and rollout timeline." },
+      { id: "C", text: "For frontline staff, focus on clear step-by-step submission instructions." },
       { id: "D", text: "For frontline staff, lead with the budget-impact analysis before any instructions." },
     ],
     correctOptionIds: ["B","C"],
@@ -562,7 +562,7 @@ export const questions: QuestionInput[] = [
     options: [
       { id: "A", text: "A single inline chat response that isn't saved anywhere else." },
       { id: "B", text: "A spoken summary with no written record." },
-      { id: "C", text: "An artifact — a standalone document new hires can return to, that can be easily edited and updated as the process changes." },
+      { id: "C", text: "An artifact — a standalone document new hires can return to and that's easy to update." },
       { id: "D", text: "A series of short, disconnected chat messages." },
     ],
     correctOptionIds: ["C"],
@@ -582,7 +582,7 @@ export const questions: QuestionInput[] = [
     stem:
       "An associate asks Claude a quick one-off clarifying question in the middle of a conversation ('does this clause apply to part-time staff?'). What is the most appropriate output format for the answer?",
     options: [
-      { id: "A", text: "A short inline reply within the conversation, since this is a quick, conversational question rather than reusable standalone content." },
+      { id: "A", text: "A short inline reply within the conversation." },
       { id: "B", text: "A formal slide deck." },
       { id: "C", text: "A structured JSON object." },
       { id: "D", text: "A new artifact document created specifically for this one short answer." },
