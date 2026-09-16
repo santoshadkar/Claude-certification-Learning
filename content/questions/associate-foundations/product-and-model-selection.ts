@@ -13,7 +13,7 @@ export const questions: QuestionInput[] = [
       { id: "A", text: "Switch to research mode for every report, regardless of what it's used for." },
       { id: "B", text: "Create a new artifact for the instructions each week instead of a Project." },
       { id: "C", text: "Continue using plain chat, since each week's data is different anyway." },
-      { id: "D", text: "Set up a Project with the report format and standing instructions configured once, so the analyst doesn't re-explain context every week." },
+      { id: "D", text: "Set up a Project with the report format and standing instructions configured once." },
     ],
     correctOptionIds: ["D"],
     selectCount: 1,
@@ -33,7 +33,7 @@ export const questions: QuestionInput[] = [
       "A consultant needs to produce a 12-page strategy document that the client will review, comment on, and revise over several weeks. Which output approach best fits this need?",
     options: [
       { id: "A", text: "Keep the document only inline in the chat, re-pasting it whenever changes are needed." },
-      { id: "B", text: "Use an artifact, so the document exists as a standalone, iterable piece of content that's easy to revise over time." },
+      { id: "B", text: "Use an artifact, so the document exists as a standalone, easily revised piece of content." },
       { id: "C", text: "Recreate a brand-new conversation from scratch for every single revision." },
       { id: "D", text: "Ask for the document to be delivered as a single very long chat message with no other structure." },
     ],
@@ -56,7 +56,7 @@ export const questions: QuestionInput[] = [
     options: [
       { id: "A", text: "A Project is required even for the single quick factual question." },
       { id: "B", text: "An artifact should be used for the quick factual question instead of chat." },
-      { id: "C", text: "Research mode is better suited to the broad, open-ended information-gathering task, while plain chat suits the quick factual question." },
+      { id: "C", text: "Research mode suits the broad scan; plain chat suits the quick factual question." },
       { id: "D", text: "Plain chat is equally well suited to both an open-ended broad scan and a quick factual question." },
     ],
     correctOptionIds: ["C"],
@@ -76,7 +76,7 @@ export const questions: QuestionInput[] = [
     stem:
       "A marketing team wants Claude to always follow their brand voice guide and reference their existing campaign archive whenever drafting new content, across many different requests over time. What is the best way to set this up?",
     options: [
-      { id: "A", text: "Configure a Project with the brand voice guide and campaign archive as standing instructions and knowledge sources." },
+      { id: "A", text: "Configure a Project with the brand guide and campaign archive as standing knowledge." },
       { id: "B", text: "Paste the brand voice guide and campaign archive into every individual chat message." },
       { id: "C", text: "Create a new artifact containing the brand guide for every new piece of content requested." },
       { id: "D", text: "Rely on Claude to remember the brand voice from a single past conversation indefinitely." },
@@ -98,8 +98,8 @@ export const questions: QuestionInput[] = [
     stem:
       "A consulting associate regularly drafts client-facing proposals that follow a consistent template and reference a shared library of past case studies. Which two product-feature choices best fit this recurring work? (Select 2)",
     options: [
-      { id: "A", text: "A Project configured with the proposal template and the case-study library as reference knowledge." },
-      { id: "B", text: "An artifact for each individual proposal draft, so it can be reviewed and revised as a standalone document." },
+      { id: "A", text: "A Project configured with the proposal template and case-study library as reference knowledge." },
+      { id: "B", text: "An artifact for each proposal draft, so it can be reviewed and revised as a standalone document." },
       { id: "C", text: "A brand-new, unconfigured chat for every proposal, re-explaining the template and re-pasting case studies each time." },
       { id: "D", text: "Research mode for every proposal, regardless of whether new research is actually needed." },
     ],
@@ -123,7 +123,7 @@ export const questions: QuestionInput[] = [
       { id: "A", text: "Set up a new Project just for this single conversion." },
       { id: "B", text: "Use research mode to thoroughly investigate unit conversion standards first." },
       { id: "C", text: "Create an artifact to store the answer for future reference." },
-      { id: "D", text: "Ask the question directly in a plain chat message, since this is a quick, one-off need with no ongoing context to persist." },
+      { id: "D", text: "Ask the question directly in a plain chat message, since it's a quick, one-off need." },
     ],
     correctOptionIds: ["D"],
     selectCount: 1,
@@ -143,7 +143,7 @@ export const questions: QuestionInput[] = [
       "A developer wants Claude's help writing a small utility function they'll paste directly into their codebase, versus later asking a quick question about what a specific line of existing code does. How should these two requests be handled differently?",
     options: [
       { id: "A", text: "Use an artifact for the quick explanation and inline chat for the utility function." },
-      { id: "B", text: "Use an artifact for the utility function, since it's a standalone piece of code meant to be copied and reused, while the quick explanation of an existing line fits fine as an inline chat answer." },
+      { id: "B", text: "Use an artifact for the reusable utility function, and inline chat for the quick explanation." },
       { id: "C", text: "Treat both identically, since both involve code." },
       { id: "D", text: "Require a Project for both, regardless of scope." },
     ],
@@ -166,7 +166,7 @@ export const questions: QuestionInput[] = [
     options: [
       { id: "A", text: "Whichever tier is used should be randomly varied for each reply." },
       { id: "B", text: "The most capable, highest-cost tier available, to maximize quality on every single reply." },
-      { id: "C", text: "A faster, lower-cost tier (like Haiku) suited to high-volume, straightforward tasks." },
+      { id: "C", text: "A faster, lower-cost tier, like Haiku, suited to high-volume, simple tasks." },
       { id: "D", text: "Model tier makes no difference for this kind of task." },
     ],
     correctOptionIds: ["C"],
@@ -186,7 +186,7 @@ export const questions: QuestionInput[] = [
     stem:
       "A legal team needs Claude to analyze a dense, ambiguous multi-party contract and flag subtle inconsistencies across sections. Which model tier is most appropriate?",
     options: [
-      { id: "A", text: "The most capable tier (like Opus), given the depth of reasoning and attention to subtle detail this task requires." },
+      { id: "A", text: "The most capable tier, like Opus, given the depth of reasoning this task requires." },
       { id: "B", text: "The fastest, cheapest tier, since contract review is a routine task." },
       { id: "C", text: "Tier doesn't matter for document analysis tasks." },
       { id: "D", text: "Whichever tier is fastest to respond, regardless of reasoning depth." },
@@ -211,7 +211,7 @@ export const questions: QuestionInput[] = [
       { id: "A", text: "The fastest, lowest-capability tier, to minimize cost above all else." },
       { id: "B", text: "The most capable, highest-cost tier for every single memo, regardless of complexity." },
       { id: "C", text: "Tier selection is irrelevant for writing tasks." },
-      { id: "D", text: "A balanced mid-tier model (like Sonnet) that combines strong general capability with good speed for everyday work." },
+      { id: "D", text: "A balanced mid-tier model, like Sonnet, with good general capability and speed." },
     ],
     correctOptionIds: ["D"],
     selectCount: 1,
@@ -276,7 +276,7 @@ export const questions: QuestionInput[] = [
     options: [
       { id: "A", text: "Whichever tier responds first should be used, regardless of reasoning depth." },
       { id: "B", text: "Tier choice is irrelevant to planning tasks." },
-      { id: "C", text: "The most capable tier, given the depth of reasoning needed to weigh multiple complex tradeoffs." },
+      { id: "C", text: "The most capable tier, given the reasoning needed to weigh complex tradeoffs." },
       { id: "D", text: "The fastest, cheapest tier, since refactor planning is a routine engineering task." },
     ],
     correctOptionIds: ["C"],
@@ -296,7 +296,7 @@ export const questions: QuestionInput[] = [
     stem:
       "An associate uses the most capable, highest-cost model tier to auto-generate simple one-line email subject lines in bulk, hundreds of times a day. What is the concern with this choice?",
     options: [
-      { id: "A", text: "This likely wastes cost and adds unnecessary latency, since a simple, high-volume task like this doesn't need the top tier's depth of reasoning." },
+      { id: "A", text: "This likely wastes cost and latency, since a simple, high-volume task doesn't need it." },
       { id: "B", text: "There is no concern, since higher capability is always strictly better regardless of task." },
       { id: "C", text: "Top-tier models cannot generate short text at all." },
       { id: "D", text: "The concern is only that subject lines might be too long." },
@@ -321,7 +321,7 @@ export const questions: QuestionInput[] = [
       { id: "A", text: "Selecting a tier at random for variety." },
       { id: "B", text: "Ignoring cost and speed entirely, since quality is always the only consideration." },
       { id: "C", text: "Selecting the most capable tier available, regardless of cost or speed impact." },
-      { id: "D", text: "Selecting the fastest, most cost-efficient tier that still produces acceptable reply quality, since that matches the stated priorities." },
+      { id: "D", text: "Selecting the fastest, most cost-efficient tier that still gives acceptable quality." },
     ],
     correctOptionIds: ["D"],
     selectCount: 1,
@@ -341,7 +341,7 @@ export const questions: QuestionInput[] = [
       "A company is preparing a single, high-stakes annual report that will be read by investors and regulators, where getting the analysis right matters far more than saving a few seconds or a small amount of cost. How should model selection reflect this?",
     options: [
       { id: "A", text: "Prioritize speed above all else, since faster delivery is always the right default." },
-      { id: "B", text: "Prioritize quality by using the most capable tier, since the cost/speed tradeoff is clearly outweighed by the stakes of this particular document." },
+      { id: "B", text: "Prioritize quality with the most capable tier, since the stakes clearly outweigh cost/speed." },
       { id: "C", text: "Model selection shouldn't vary based on how important a specific document is." },
       { id: "D", text: "Prioritize the cheapest available tier regardless of the document's importance." },
     ],
@@ -364,7 +364,7 @@ export const questions: QuestionInput[] = [
     options: [
       { id: "A", text: "Cost is the only factor that matters for a chat widget." },
       { id: "B", text: "Latency is irrelevant to a good user experience in live chat." },
-      { id: "C", text: "Latency — a faster tier is important to keep the live interaction feeling responsive for this kind of straightforward, real-time use case." },
+      { id: "C", text: "Latency — a faster tier keeps the live interaction feeling responsive." },
       { id: "D", text: "The most capable tier should always be used for anything customer-facing, regardless of latency impact." },
     ],
     correctOptionIds: ["C"],
@@ -384,7 +384,7 @@ export const questions: QuestionInput[] = [
     stem:
       "Which two statements correctly describe how to align model selection with cost, speed, and quality requirements? (Select 2)",
     options: [
-      { id: "A", text: "A low-volume, high-stakes task where accuracy matters most can justify the added cost and latency of a more capable tier." },
+      { id: "A", text: "A low-volume, high-stakes task can justify the added cost and latency of a more capable tier." },
       { id: "B", text: "The most capable tier should be used for every task to eliminate any risk of a wrong answer." },
       { id: "C", text: "Model tier should always be chosen independently of cost, speed, or volume considerations." },
       { id: "D", text: "A high-volume, low-complexity task with tight cost constraints generally favors a faster, cheaper tier." },
@@ -406,7 +406,7 @@ export const questions: QuestionInput[] = [
     stem:
       "A small nonprofit with a limited software budget needs ongoing help drafting grant materials and donor communications — solid quality, but cost efficiency matters given their limited resources. What is the most appropriate approach to model selection?",
     options: [
-      { id: "A", text: "Use a balanced, cost-efficient tier suited to good general-purpose writing, reserving a higher tier only for the rare cases that truly need deeper reasoning." },
+      { id: "A", text: "Use a balanced, cost-efficient tier, reserving a higher tier only for cases that truly need it." },
       { id: "B", text: "Cost should never factor into an organization's model selection decisions." },
       { id: "C", text: "Use the most capable, highest-cost tier for every single piece of writing regardless of budget constraints." },
       { id: "D", text: "Avoid using any paid tier at all, even where it would meaningfully help." },
@@ -431,7 +431,7 @@ export const questions: QuestionInput[] = [
       { id: "A", text: "The only issue is that it might be slower than a human reviewer." },
       { id: "B", text: "There is no issue; using the best available tier is always the safest choice." },
       { id: "C", text: "The issue is that expense reports should never involve AI at all." },
-      { id: "D", text: "This wastes cost on a task that doesn't require the top tier's additional reasoning capability, since the task is simple and well-defined." },
+      { id: "D", text: "This wastes cost on a task that's simple and doesn't need the top tier's reasoning." },
     ],
     correctOptionIds: ["D"],
     selectCount: 1,
@@ -451,7 +451,7 @@ export const questions: QuestionInput[] = [
       "A team lead says: 'We should always use whichever model is fastest, no matter what the task is.' What is the flaw in this blanket rule?",
     options: [
       { id: "A", text: "There is no flaw; speed should always be the only consideration." },
-      { id: "B", text: "It ignores that some tasks (complex reasoning, high-stakes decisions) genuinely need more capability than the fastest tier provides, even at the cost of some speed." },
+      { id: "B", text: "It ignores that complex, high-stakes tasks genuinely need more capability than speed alone." },
       { id: "C", text: "The flaw is that speed can never be measured reliably." },
       { id: "D", text: "The flaw is that faster models are always less accurate in every situation." },
     ],
@@ -474,7 +474,7 @@ export const questions: QuestionInput[] = [
     options: [
       { id: "A", text: "Ignore the contradictions, since they don't matter for any practical purpose." },
       { id: "B", text: "Keep adding more messages to the same conversation indefinitely, since Claude will always retain everything perfectly regardless of length." },
-      { id: "C", text: "Summarize the key facts that still matter and start a fresh, more focused conversation, since a very long, sprawling conversation can become harder to reason over consistently." },
+      { id: "C", text: "Summarize the key facts and start a fresh, more focused conversation." },
       { id: "D", text: "Assume the contradictions mean Claude is broken and should not be used further today." },
     ],
     correctOptionIds: ["C"],
@@ -494,7 +494,7 @@ export const questions: QuestionInput[] = [
     stem:
       "A team wants certain standing instructions (tone, formatting rules, key reference facts) to apply automatically every time anyone on the team starts a new conversation about a specific ongoing initiative. What is the best way to achieve this?",
     options: [
-      { id: "A", text: "Configure these standing instructions once in a Project so they persist and apply automatically across future conversations related to that initiative." },
+      { id: "A", text: "Configure these standing instructions once in a Project so they persist automatically." },
       { id: "B", text: "Ask each team member to memorize and manually retype the instructions at the start of every new conversation." },
       { id: "C", text: "Rely on Claude to remember the instructions from whichever past conversation happened to include them." },
       { id: "D", text: "Post the instructions in a general team chat channel and hope everyone remembers to reference them." },
@@ -519,7 +519,7 @@ export const questions: QuestionInput[] = [
       { id: "A", text: "Context management is only relevant for very technical tasks, not general questions." },
       { id: "B", text: "Unrelated questions should never be asked at all once a conversation has started on a different topic." },
       { id: "C", text: "The unrelated question must always be asked in the same conversation to preserve context." },
-      { id: "D", text: "Starting a fresh, separate conversation for the unrelated question can keep both topics clearer and avoid mixing unrelated context unnecessarily." },
+      { id: "D", text: "Starting a fresh, separate conversation keeps both topics clearer." },
     ],
     correctOptionIds: ["D"],
     selectCount: 1,
@@ -539,9 +539,9 @@ export const questions: QuestionInput[] = [
       "Which two practices reflect good context management for an associate working on a long-running, multi-week initiative? (Select 2)",
     options: [
       { id: "A", text: "Avoid ever starting a new conversation, since doing so always loses all useful context permanently." },
-      { id: "B", text: "Persist standing reference material and instructions in a Project rather than re-pasting them into every new conversation." },
+      { id: "B", text: "Persist standing reference material in a Project rather than re-pasting it each time." },
       { id: "C", text: "Keep every unrelated topic the associate has ever discussed in one single continuous conversation, forever, regardless of relevance." },
-      { id: "D", text: "When a single conversation grows very long and unfocused, summarize the key facts and continue in a fresh conversation rather than letting it sprawl indefinitely." },
+      { id: "D", text: "When a conversation grows long and unfocused, summarize the key facts and start fresh." },
     ],
     correctOptionIds: ["B","D"],
     selectCount: 2,
@@ -561,7 +561,7 @@ export const questions: QuestionInput[] = [
       "An associate pastes an entire 200-page reference manual into a single chat message every time they have a quick question about a small part of it. What would better fit this recurring need?",
     options: [
       { id: "A", text: "Ask questions about the manual without providing it at all." },
-      { id: "B", text: "Upload the manual once as a knowledge source within a Project, so it can be referenced across future questions without being re-pasted each time." },
+      { id: "B", text: "Upload the manual once as a knowledge source in a Project, so it's referenced going forward." },
       { id: "C", text: "Continue pasting the full manual every time, since that's the only way to reference it." },
       { id: "D", text: "Only paste the manual for the first question and rely on memory of it for all future unrelated conversations." },
     ],
@@ -584,7 +584,7 @@ export const questions: QuestionInput[] = [
     options: [
       { id: "A", text: "Assume Claude automatically forgets outdated information the moment it's superseded." },
       { id: "B", text: "Start an entirely new conversation from zero, discarding all other useful context, just to fix one figure." },
-      { id: "C", text: "Explicitly restate the corrected figure clearly so it's unambiguous going forward, rather than assuming the correction was fully absorbed." },
+      { id: "C", text: "Explicitly restate the corrected figure so it's unambiguous going forward." },
       { id: "D", text: "Continue as normal, since one incorrect figure early on won't affect anything later." },
     ],
     correctOptionIds: ["C"],
@@ -604,7 +604,7 @@ export const questions: QuestionInput[] = [
     stem:
       "A new employee is told 'just keep using the same conversation for everything, forever, so Claude remembers all our history.' What is the problem with this advice?",
     options: [
-      { id: "A", text: "An indefinitely growing, unfocused conversation covering unrelated topics can become harder to reason over consistently, and standing context that should persist across topics is better handled through a Project than through one sprawling chat." },
+      { id: "A", text: "A sprawling, unfocused conversation gets harder to reason over; standing context belongs in a Project instead." },
       { id: "B", text: "There is no problem — a single indefinite conversation is always the best approach." },
       { id: "C", text: "Conversations should never be reused for more than one message under any circumstances." },
       { id: "D", text: "The only problem is that it will run out of storage space on the employee's device." },

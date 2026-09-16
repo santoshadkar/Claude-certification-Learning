@@ -13,7 +13,7 @@ export const questions: QuestionInput[] = [
       { id: "A", text: "Ask Claude to guess what the department head probably meant and proceed without further clarification." },
       { id: "B", text: "Decline to help until the department head writes a full formal requirements document unassisted." },
       { id: "C", text: "Immediately build a feedback-processing tool based on the initial one-sentence request." },
-      { id: "D", text: "Use Claude to help clarify the actual requirement — what feedback, what decision it should inform, and what 'success' looks like — before deciding on a solution." },
+      { id: "D", text: "Use Claude to help clarify the actual requirement and what success would look like first." },
     ],
     correctOptionIds: ["D"],
     selectCount: 1,
@@ -33,7 +33,7 @@ export const questions: QuestionInput[] = [
       "An operations lead wants to automate 'something' about their weekly reporting process, but hasn't identified which specific step is actually slow or error-prone. What should happen first?",
     options: [
       { id: "A", text: "Wait until the process fails badly enough to make the bottleneck obvious." },
-      { id: "B", text: "Use Claude to help walk through the current process step by step and identify which specific step is actually the bottleneck worth addressing." },
+      { id: "B", text: "Use Claude to walk through the process step by step and identify the actual bottleneck." },
       { id: "C", text: "Skip analysis entirely and pick a step to automate at random." },
       { id: "D", text: "Automate the entire reporting process end-to-end immediately, without first identifying the specific bottleneck." },
     ],
@@ -56,7 +56,7 @@ export const questions: QuestionInput[] = [
     options: [
       { id: "A", text: "Assume a generic definition of churn reduction and proceed without checking it against the stakeholder's actual situation." },
       { id: "B", text: "Immediately produce a churn-prediction model without asking any clarifying questions." },
-      { id: "C", text: "Help the stakeholder think through what data exists, what a measurable definition of success would be, and what's actually in scope, before jumping to a solution." },
+      { id: "C", text: "Help the stakeholder define available data and a measurable success definition first." },
       { id: "D", text: "Tell the stakeholder this task is entirely out of scope for AI assistance." },
     ],
     correctOptionIds: ["C"],
@@ -77,8 +77,8 @@ export const questions: QuestionInput[] = [
       "A team wants Claude's help figuring out whether a proposed internal tool is actually worth building. Which two uses of Claude are appropriate at this early requirements stage? (Select 2)",
     options: [
       { id: "A", text: "Ask Claude to make the final go/no-go funding decision on the team's behalf." },
-      { id: "B", text: "Ask Claude to help draft a rough success metric the team could later use to evaluate whether the tool worked." },
-      { id: "C", text: "Ask Claude to help identify who would actually use the tool and what problem it solves for them." },
+      { id: "B", text: "Ask Claude to help draft a rough success metric to evaluate whether the tool worked." },
+      { id: "C", text: "Ask Claude to help identify who'd use the tool and what problem it solves." },
       { id: "D", text: "Skip this analysis and proceed directly to a full technical build." },
     ],
     correctOptionIds: ["B","C"],
@@ -98,7 +98,7 @@ export const questions: QuestionInput[] = [
     stem:
       "A manager asks for 'a dashboard' but hasn't said what decisions it needs to support or who will use it. What is the risk of building it immediately without further analysis?",
     options: [
-      { id: "A", text: "The dashboard may end up showing information that doesn't actually support the decisions the manager needs to make, wasting the effort of building it." },
+      { id: "A", text: "The dashboard may show information that doesn't actually support the manager's decisions." },
       { id: "B", text: "There is no risk; dashboards are generic enough that requirements never matter." },
       { id: "C", text: "The risk only applies to external, customer-facing dashboards." },
       { id: "D", text: "The only risk is that the dashboard will load slowly." },
@@ -123,7 +123,7 @@ export const questions: QuestionInput[] = [
       { id: "A", text: "Only work on this task once a year during an annual review." },
       { id: "B", text: "Replace the analyst's judgment entirely and make the planning decisions autonomously." },
       { id: "C", text: "Suggest the analyst stop producing the planning document altogether." },
-      { id: "D", text: "Help draft an initial compiled version from the source notes, which the analyst then reviews and finalizes, cutting the manual compilation time." },
+      { id: "D", text: "Help draft an initial compiled version from the notes, which the analyst reviews and finalizes." },
     ],
     correctOptionIds: ["D"],
     selectCount: 1,
@@ -143,7 +143,7 @@ export const questions: QuestionInput[] = [
       "A team wants to explore whether entering a new geographic market makes sense, and needs a synthesized view of relevant regulatory, competitive, and demographic factors. What is an appropriate way to use Claude here?",
     options: [
       { id: "A", text: "Ask Claude only about demographic factors and ignore regulatory and competitive considerations entirely." },
-      { id: "B", text: "Use Claude to help synthesize and organize research across these factors into a structured starting point for the team's own decision-making." },
+      { id: "B", text: "Use Claude to synthesize research across these factors into a structured starting point." },
       { id: "C", text: "Ask Claude to make the final market-entry decision autonomously." },
       { id: "D", text: "Skip research entirely and rely on intuition." },
     ],
@@ -166,7 +166,7 @@ export const questions: QuestionInput[] = [
     options: [
       { id: "A", text: "Treat Claude's guess as a confirmed root cause without checking it against actual process data." },
       { id: "B", text: "Ask Claude to eliminate all five steps to guarantee no delays." },
-      { id: "C", text: "Have Claude analyze the described steps for likely bottlenecks (e.g., steps with unclear ownership or long wait times) as a starting hypothesis for the team to validate against real data." },
+      { id: "C", text: "Have Claude analyze the steps for likely bottlenecks as a hypothesis for the team to validate." },
       { id: "D", text: "Skip process analysis and redesign the workflow from scratch with no diagnosis." },
     ],
     correctOptionIds: ["C"],
@@ -188,8 +188,8 @@ export const questions: QuestionInput[] = [
     options: [
       { id: "A", text: "Replacing a team's own judgment about strategic priorities entirely." },
       { id: "B", text: "Novelty use with no real time savings, just because it's possible to ask Claude to do it." },
-      { id: "C", text: "Synthesizing a large volume of scattered notes into an organized planning document for a team to review." },
-      { id: "D", text: "Identifying a genuinely time-consuming, repetitive bottleneck in a described workflow as a hypothesis to validate." },
+      { id: "C", text: "Synthesizing scattered notes into an organized planning document for the team to review." },
+      { id: "D", text: "Identifying a genuinely time-consuming bottleneck in a described workflow to validate." },
     ],
     correctOptionIds: ["C","D"],
     selectCount: 2,
@@ -208,7 +208,7 @@ export const questions: QuestionInput[] = [
     stem:
       "A team wants to research a potential new vendor before signing a contract. What is an appropriate limitation to keep in mind about Claude's role in this research?",
     options: [
-      { id: "A", text: "Claude's synthesis should be a starting point, and any information that will inform the final contracting decision should be verified against authoritative sources (e.g., the vendor directly, official filings) before being relied upon." },
+      { id: "A", text: "Claude's synthesis is a starting point; information feeding the final decision should be verified independently." },
       { id: "B", text: "Vendor research is entirely outside anything Claude could reasonably help with." },
       { id: "C", text: "Claude's research output can be treated as fully verified and final without any further checking." },
       { id: "D", text: "Only Claude's opinion of the vendor should be used to make the decision, without any other input." },
@@ -233,7 +233,7 @@ export const questions: QuestionInput[] = [
       { id: "A", text: "Design the form once and prevent any further changes to keep it consistent." },
       { id: "B", text: "Refuse to help until the team has already finalized every field on their own." },
       { id: "C", text: "Provide a single final version with no opportunity for feedback or revision." },
-      { id: "D", text: "Draft an initial version of the form, then iterate based on the team's feedback on what's missing or confusing, refining it across a few rounds." },
+      { id: "D", text: "Draft an initial version, then iterate based on the team's feedback across a few rounds." },
     ],
     correctOptionIds: ["D"],
     selectCount: 1,
@@ -253,7 +253,7 @@ export const questions: QuestionInput[] = [
       "A team is deciding between two possible workflow structures for handling customer complaints and wants to think through the tradeoffs of each before committing. How can Claude support this design decision?",
     options: [
       { id: "A", text: "Pick one structure arbitrarily and present it as the only option." },
-      { id: "B", text: "Help lay out the tradeoffs of each structure (speed, complexity, staffing needs) so the team can compare them before making an informed choice." },
+      { id: "B", text: "Help lay out the tradeoffs of each structure so the team can compare them and decide." },
       { id: "C", text: "Refuse to discuss tradeoffs since only the team can make this decision." },
       { id: "D", text: "Recommend building both structures fully before evaluating either." },
     ],
@@ -274,7 +274,7 @@ export const questions: QuestionInput[] = [
     stem:
       "A team is iterating on a new employee handbook draft. Which two practices reflect good use of Claude in this design/iteration process? (Select 2)",
     options: [
-      { id: "A", text: "Share specific feedback on what's unclear or missing in a draft section, and ask for a revised version addressing that feedback." },
+      { id: "A", text: "Share specific feedback on what's unclear or missing, and ask for a revision." },
       { id: "B", text: "Iterate section by section, reviewing and refining each before moving to the next." },
       { id: "C", text: "Discard all prior drafts and start over from nothing each time a small change is needed." },
       { id: "D", text: "Treat the very first draft as final and distribute it to all employees without review." },
@@ -298,7 +298,7 @@ export const questions: QuestionInput[] = [
     options: [
       { id: "A", text: "Adopt the draft as-is despite the mismatch, since redoing it takes time." },
       { id: "B", text: "Discard the entire draft, including the parts that were already good." },
-      { id: "C", text: "Point out specifically what doesn't match reality in that section and ask for a revision, keeping the rest of the draft." },
+      { id: "C", text: "Point out what doesn't match reality in that section and ask for a revision." },
       { id: "D", text: "Ask an unrelated question instead of addressing the mismatch." },
     ],
     correctOptionIds: ["C"],
@@ -318,7 +318,7 @@ export const questions: QuestionInput[] = [
     stem:
       "A team wants Claude to help design a new customer-onboarding flow but hasn't yet decided what steps are truly necessary versus optional. What is the best approach?",
     options: [
-      { id: "A", text: "Work with Claude to first identify and discuss which steps are genuinely necessary, then iterate on the flow design based on that understanding." },
+      { id: "A", text: "Work with Claude to first identify which steps are genuinely necessary, then iterate on the design." },
       { id: "B", text: "Skip the onboarding flow entirely since it's too complex to design collaboratively." },
       { id: "C", text: "Have Claude design the flow, then never review or adjust it again regardless of feedback." },
       { id: "D", text: "Ask Claude to produce a single locked-in final flow immediately with no discussion of what's necessary versus optional." },
@@ -343,7 +343,7 @@ export const questions: QuestionInput[] = [
       { id: "A", text: "This requires eliminating the human review step entirely to count as an integration." },
       { id: "B", text: "This isn't a meaningful integration of any kind." },
       { id: "C", text: "A redesign of the entire status-update process from the ground up." },
-      { id: "D", text: "An augmentation — the existing process and review step stay the same, but the drafting step is sped up." },
+      { id: "D", text: "An augmentation — the process and review step stay the same, drafting just gets faster." },
     ],
     correctOptionIds: ["D"],
     selectCount: 1,
@@ -363,7 +363,7 @@ export const questions: QuestionInput[] = [
       "A company's old process for routing support tickets was built around limitations that no longer exist now that Claude can help triage and draft responses. The team decides to rethink the whole ticket flow from scratch rather than just speeding up one step. What kind of change is this?",
     options: [
       { id: "A", text: "This is identical to simply automating one existing step." },
-      { id: "B", text: "A redesign — rethinking the workflow itself around what's now possible, rather than keeping the old structure and just accelerating a step within it." },
+      { id: "B", text: "A redesign — rethinking the workflow itself around what's now possible." },
       { id: "C", text: "An augmentation of the existing process." },
       { id: "D", text: "This isn't a legitimate way to integrate Claude into a workflow." },
     ],
@@ -386,7 +386,7 @@ export const questions: QuestionInput[] = [
     options: [
       { id: "A", text: "This approach is only a concern if employees complain about the change." },
       { id: "B", text: "The only concern is that redesigns always take longer than augmentations." },
-      { id: "C", text: "Redesigning a process that already worked well, without a real underlying problem to solve, risks unnecessary disruption for its own sake rather than genuine improvement." },
+      { id: "C", text: "Redesigning a process that already worked well risks disruption without a real problem to solve." },
       { id: "D", text: "There is no concern; more AI usage is always better regardless of whether the existing process had a real problem." },
     ],
     correctOptionIds: ["C"],
@@ -406,9 +406,9 @@ export const questions: QuestionInput[] = [
     stem:
       "Which two scenarios describe augmenting an existing workflow, rather than redesigning it? (Select 2)",
     options: [
-      { id: "A", text: "Using Claude to speed up manual data entry into an existing spreadsheet template, without changing the surrounding approval process." },
+      { id: "A", text: "Using Claude to speed up manual data entry into an existing template, process unchanged." },
       { id: "B", text: "Completely restructuring how a team routes and prioritizes incoming requests based on new capabilities, replacing the old structure entirely." },
-      { id: "C", text: "Using Claude to draft the first pass of a report that a person still reviews and finalizes, with the rest of the process unchanged." },
+      { id: "C", text: "Using Claude to draft a report's first pass, which a person still reviews, rest unchanged." },
       { id: "D", text: "Rebuilding an entire customer-service process around a fundamentally different structure than before." },
     ],
     correctOptionIds: ["A","C"],
@@ -428,7 +428,7 @@ export const questions: QuestionInput[] = [
     stem:
       "A logistics team's current process for scheduling deliveries was designed around a constraint (limited visibility into real-time traffic) that Claude-assisted tools can now help address. Given this, what is a reasonable way to decide between augmenting versus redesigning the process?",
     options: [
-      { id: "A", text: "Consider whether the original constraint that shaped the current process still holds — if it no longer does, a redesign may unlock more value than simply speeding up the old structure." },
+      { id: "A", text: "Consider whether the original constraint still holds — if not, a redesign may unlock more value." },
       { id: "B", text: "The choice between augmentation and redesign should be made without considering what shaped the original process." },
       { id: "C", text: "Always default to augmentation, regardless of whether the original constraint still applies." },
       { id: "D", text: "Always default to a full redesign, regardless of whether the current process already works well." },
@@ -453,7 +453,7 @@ export const questions: QuestionInput[] = [
       { id: "A", text: "Claim the tool will be perfectly accurate and require no human review at all, to make the pitch more convincing." },
       { id: "B", text: "Focus the pitch entirely on how advanced the underlying technology is, without describing the actual expected outcome." },
       { id: "C", text: "Avoid mentioning any limitations at all, since bringing them up might make the stakeholder hesitant." },
-      { id: "D", text: "Describe the specific time or quality improvement expected, and be upfront about what still requires human review or judgment." },
+      { id: "D", text: "Describe the specific improvement expected, and be upfront about what still needs human review." },
     ],
     correctOptionIds: ["D"],
     selectCount: 1,
@@ -473,7 +473,7 @@ export const questions: QuestionInput[] = [
       "After a Claude-assisted process is rolled out, a stakeholder is surprised to learn it still requires human review for edge cases, saying 'I thought this was fully automated.' What does this most likely indicate?",
     options: [
       { id: "A", text: "The stakeholder is simply wrong and no further communication is needed." },
-      { id: "B", text: "The initial communication about the solution's limitations likely wasn't clear enough, and expectations should be reset going forward with more specific framing." },
+      { id: "B", text: "The initial communication about limitations likely wasn't clear; expectations need resetting." },
       { id: "C", text: "Human review requirements should be removed to match what was communicated." },
       { id: "D", text: "The rollout itself was flawed from a technical standpoint." },
     ],
@@ -494,10 +494,10 @@ export const questions: QuestionInput[] = [
     stem:
       "An associate is presenting the results of a Claude-assisted pilot project to leadership. Which two elements should be included for an honest, useful presentation? (Select 2)",
     options: [
-      { id: "A", text: "The known limitations or failure cases observed, and what human oversight remains necessary going forward." },
+      { id: "A", text: "The known limitations observed, and what human oversight remains necessary going forward." },
       { id: "B", text: "A claim that the tool never makes mistakes, to build confidence in scaling it up." },
       { id: "C", text: "Omitting any mention of remaining manual steps, to make the result look more complete." },
-      { id: "D", text: "The measured time or quality improvement observed during the pilot, with real numbers where available." },
+      { id: "D", text: "The measured time or quality improvement observed during the pilot, with real numbers." },
     ],
     correctOptionIds: ["A","D"],
     selectCount: 2,
@@ -518,7 +518,7 @@ export const questions: QuestionInput[] = [
     options: [
       { id: "A", text: "Yes, without qualification, to avoid a longer conversation." },
       { id: "B", text: "Say accuracy is not something that can be discussed or measured." },
-      { id: "C", text: "No system can honestly guarantee 100% accuracy; describe the observed accuracy rate, the kinds of errors that do occur, and what review process catches them." },
+      { id: "C", text: "No system can honestly guarantee 100% accuracy; describe the observed rate and what catches errors." },
       { id: "D", text: "Refuse to answer the question at all." },
     ],
     correctOptionIds: ["C"],
@@ -538,7 +538,7 @@ export const questions: QuestionInput[] = [
     stem:
       "An associate is worried that being upfront about a Claude-assisted tool's limitations will make leadership less likely to approve the project. What is the best way to handle this?",
     options: [
-      { id: "A", text: "Present the limitations honestly alongside the value, since an approval based on inaccurate expectations creates bigger problems later when the limitations surface anyway." },
+      { id: "A", text: "Present the limitations honestly alongside the value, since hidden ones surface later anyway." },
       { id: "B", text: "Downplay or omit the limitations in the pitch to improve the chances of approval." },
       { id: "C", text: "Only mention limitations if leadership specifically asks about them first." },
       { id: "D", text: "Wait until after approval to ever mention any limitations." },
@@ -563,7 +563,7 @@ export const questions: QuestionInput[] = [
       { id: "A", text: "Avoid explaining anything about limitations since executives only care about benefits." },
       { id: "B", text: "Use the same deeply technical language and detail that would be used with an engineering audience." },
       { id: "C", text: "Skip the conversation with executives entirely since they don't need to understand any of it." },
-      { id: "D", text: "Frame the explanation around business outcomes (time saved, cost impact, risk considerations) rather than technical implementation detail." },
+      { id: "D", text: "Frame the explanation around business outcomes — time saved, cost, and risk — not implementation detail." },
     ],
     correctOptionIds: ["D"],
     selectCount: 1,
@@ -583,7 +583,7 @@ export const questions: QuestionInput[] = [
       "A stakeholder assumes that because a Claude-assisted process worked perfectly for one type of document, it will work equally well for a very different, more complex document type without any additional testing. How should the associate address this assumption?",
     options: [
       { id: "A", text: "Insist the new document type be abandoned entirely rather than considered." },
-      { id: "B", text: "Clarify that performance on a different, more complex document type isn't guaranteed by success on the first type, and recommend validating it before relying on it the same way." },
+      { id: "B", text: "Clarify that success on the first type doesn't guarantee performance on a different one; recommend validating it." },
       { id: "C", text: "Agree without qualification, since one success is a reliable predictor of performance on anything else." },
       { id: "D", text: "Avoid raising the concern to keep the stakeholder's confidence high." },
     ],
@@ -606,7 +606,7 @@ export const questions: QuestionInput[] = [
     options: [
       { id: "A", text: "Avoid giving a concrete update and instead give a vague, non-committal summary." },
       { id: "B", text: "Report only the open issues, omitting any positive results." },
-      { id: "C", text: "Report both the measurable wins and the specific open issues or edge cases still being worked through, so the sponsor has an accurate picture to make decisions from." },
+      { id: "C", text: "Report both the measurable wins and the specific open issues still being worked through." },
       { id: "D", text: "Report only the wins and omit any open issues, to keep the update positive." },
     ],
     correctOptionIds: ["C"],
