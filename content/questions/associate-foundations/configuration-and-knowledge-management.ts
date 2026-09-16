@@ -10,7 +10,7 @@ export const questions: QuestionInput[] = [
     stem:
       "A support team sets up a Project meant to answer questions using the company's product documentation, but never actually uploads the documentation as a knowledge source. What is the likely result?",
     options: [
-      { id: "A", text: "Claude will lack grounding in the specific product documentation and may answer from general knowledge instead, which may not match the actual product." },
+      { id: "A", text: "Claude will lack grounding in the documentation and may answer from general knowledge instead." },
       { id: "B", text: "Knowledge sources are only relevant for coding-related Projects." },
       { id: "C", text: "The Project will fail to load entirely without a knowledge source." },
       { id: "D", text: "Claude will still answer perfectly, since Projects work identically with or without knowledge sources." },
@@ -35,7 +35,7 @@ export const questions: QuestionInput[] = [
       { id: "A", text: "Instructions this short will cause the Project to malfunction." },
       { id: "B", text: "Instructions only matter if a knowledge source is also present." },
       { id: "C", text: "This is a fully sufficient configuration for consistent, on-brand proposal drafts." },
-      { id: "D", text: "Vague instructions like this give little concrete guidance on tone, structure, or required sections, so outputs may vary more than the team wants." },
+      { id: "D", text: "Vague instructions like this give little concrete guidance, so outputs may vary more than wanted." },
     ],
     correctOptionIds: ["D"],
     selectCount: 1,
@@ -55,7 +55,7 @@ export const questions: QuestionInput[] = [
       "A legal team wants a Project that consistently references their actual contract templates and standard clauses when drafting new agreements. What two things does this Project most need to be configured with?",
     options: [
       { id: "A", text: "A knowledge source only, with no instructions at all." },
-      { id: "B", text: "Specific instructions about how contracts should be drafted, plus the actual contract templates and standard clauses uploaded as knowledge sources." },
+      { id: "B", text: "Specific drafting instructions, plus the actual templates and clauses as knowledge sources." },
       { id: "C", text: "Instructions only, with no knowledge sources, since Claude already knows standard contract language." },
       { id: "D", text: "Only a catchy Project name, with no other configuration needed." },
     ],
@@ -79,7 +79,7 @@ export const questions: QuestionInput[] = [
       { id: "A", text: "Use a different, newly created Project for every single post to keep things 'fresh.'" },
       { id: "B", text: "Upload the actual brand style guide as a knowledge source." },
       { id: "C", text: "Leave the Project completely unconfigured and rely on each team member's individual phrasing in every request." },
-      { id: "D", text: "Write specific instructions describing the desired tone and any words/phrases to avoid." },
+      { id: "D", text: "Write specific instructions describing the desired tone and words to avoid." },
     ],
     correctOptionIds: ["B","D"],
     selectCount: 2,
@@ -100,7 +100,7 @@ export const questions: QuestionInput[] = [
     options: [
       { id: "A", text: "Projects can only ever be used for one single question, ever." },
       { id: "B", text: "The only concern is that the Project's name might be misleading." },
-      { id: "C", text: "The refund-specific instructions and knowledge may not fit an unrelated HR question well, and could even produce confusing or inappropriate responses for that different context." },
+      { id: "C", text: "The refund-specific instructions may not fit an HR question and could produce a confusing response." },
       { id: "D", text: "There is no concern; a Project's configuration is equally suited to any topic once it's set up well." },
     ],
     correctOptionIds: ["C"],
@@ -120,7 +120,7 @@ export const questions: QuestionInput[] = [
     stem:
       "A finance team wants a Project to help draft monthly variance reports, always following the same structure and referencing the prior month's approved report as a style reference. What is a good way to configure this?",
     options: [
-      { id: "A", text: "Upload the prior month's approved report as a knowledge source and add instructions describing the expected structure and how it should stay consistent month to month." },
+      { id: "A", text: "Upload the prior approved report as a knowledge source and add instructions on the expected structure." },
       { id: "B", text: "Avoid using a Project at all, since financial reports are too sensitive for any configuration." },
       { id: "C", text: "Only upload the prior report, with no instructions about desired structure." },
       { id: "D", text: "Configure the Project with no reference material at all, and just describe the desired structure verbally each month in the chat." },
@@ -145,7 +145,7 @@ export const questions: QuestionInput[] = [
       { id: "A", text: "Connectors remove the need to ever think about what's being shared with the Project." },
       { id: "B", text: "Connectors are only useful for image files." },
       { id: "C", text: "There is no real advantage; connectors and manual uploads behave identically in every respect." },
-      { id: "D", text: "The connector can reflect the current state of frequently-updated documents without requiring someone to manually re-upload a new file every time something changes." },
+      { id: "D", text: "The connector reflects the current state of a document without needing manual re-uploads each time." },
     ],
     correctOptionIds: ["D"],
     selectCount: 1,
@@ -165,7 +165,7 @@ export const questions: QuestionInput[] = [
       "A team is considering connecting their email inbox to a Project so Claude can help draft replies. What is an important consideration before doing this?",
     options: [
       { id: "A", text: "None — inboxes should always be connected by default for maximum convenience." },
-      { id: "B", text: "Consider what sensitive or personal information might be in that inbox and whether it's appropriate for this connector's intended use, rather than connecting it just because it's convenient." },
+      { id: "B", text: "Consider what sensitive information might be in the inbox before connecting it for convenience." },
       { id: "C", text: "The only consideration is how many emails are in the inbox." },
       { id: "D", text: "Email connectors are purely hypothetical and don't need any real consideration." },
     ],
@@ -188,7 +188,7 @@ export const questions: QuestionInput[] = [
     options: [
       { id: "A", text: "Leave it as-is indefinitely, since connectors don't need ongoing management once set up." },
       { id: "B", text: "Delete the entire Project rather than reviewing the connector." },
-      { id: "C", text: "Review and reconfigure the connector (e.g., reconnect it under an active account or appropriate service account) so the Project's access doesn't depend on a departed employee's credentials." },
+      { id: "C", text: "Reconfigure the connector so access no longer depends on the departed employee's credentials." },
       { id: "D", text: "Ignore the issue unless the connector visibly breaks." },
     ],
     correctOptionIds: ["C"],
@@ -209,8 +209,8 @@ export const questions: QuestionInput[] = [
       "A team is deciding whether to connect a shared drive folder to a Project used by the whole department. Which two practices reflect responsible connector management? (Select 2)",
     options: [
       { id: "A", text: "Connect every available folder and inbox by default to maximize the amount of information available." },
-      { id: "B", text: "Review what's actually inside the folder before connecting it, to confirm nothing overly sensitive is included that shouldn't be broadly accessible this way." },
-      { id: "C", text: "Periodically revisit which connectors are active and whether they're still needed and appropriately scoped." },
+      { id: "B", text: "Review what's actually inside the folder before connecting it, to confirm nothing sensitive is included." },
+      { id: "C", text: "Periodically revisit which connectors are active and whether they're still appropriately scoped." },
       { id: "D", text: "Set up the connector once and never revisit it again regardless of organizational changes." },
     ],
     correctOptionIds: ["B","C"],
@@ -230,7 +230,7 @@ export const questions: QuestionInput[] = [
     stem:
       "A team notices that a Project's connected Drive folder now includes a new subfolder with confidential HR files that were never intended to be part of this Project's shared knowledge. What is the correct response?",
     options: [
-      { id: "A", text: "Adjust the connector's scope (or the folder structure) so the confidential HR subfolder is no longer included in what the Project can access." },
+      { id: "A", text: "Adjust the connector's scope so the confidential HR subfolder is no longer included." },
       { id: "B", text: "Leave it connected, since removing access might disrupt the Project's current setup." },
       { id: "C", text: "Do nothing unless someone specifically asks the Project a question referencing those files." },
       { id: "D", text: "Delete the confidential files entirely rather than adjusting the connector." },
@@ -255,7 +255,7 @@ export const questions: QuestionInput[] = [
       { id: "A", text: "It is perfectly sufficient and needs no further detail." },
       { id: "B", text: "It's too long and should be shortened further." },
       { id: "C", text: "System-level instructions cannot include anything about tone." },
-      { id: "D", text: "It's vague and doesn't specify concrete behaviors (tone, format, what to do in edge cases), so it's unlikely to produce consistent results." },
+      { id: "D", text: "It's vague and doesn't specify concrete behaviors, so results are unlikely to be consistent." },
     ],
     correctOptionIds: ["D"],
     selectCount: 1,
@@ -275,7 +275,7 @@ export const questions: QuestionInput[] = [
       "Which system-level instruction is most likely to produce consistent, useful results for a customer-support Project?",
     options: [
       { id: "A", text: "'Answer customer questions.'" },
-      { id: "B", text: "'Answer customer questions using only the uploaded product documentation. If the documentation doesn't cover the question, say so explicitly and suggest escalating to a human agent rather than guessing.'" },
+      { id: "B", text: "'Answer using only the uploaded docs. If they don't cover it, say so and suggest escalating to a human.'" },
       { id: "C", text: "'Try to sound smart.'" },
       { id: "D", text: "'Be as detailed as possible in every response, regardless of the question.'" },
     ],
@@ -298,7 +298,7 @@ export const questions: QuestionInput[] = [
     options: [
       { id: "A", text: "Only the first instruction written will ever be followed, and the second is always ignored." },
       { id: "B", text: "The Project will refuse to respond to anything." },
-      { id: "C", text: "The conflicting instructions may be resolved inconsistently across different responses, since they can't both be fully satisfied at once." },
+      { id: "C", text: "The conflicting instructions may be resolved inconsistently, since both can't be fully satisfied." },
       { id: "D", text: "Both instructions will always be followed perfectly and simultaneously with no tension." },
     ],
     correctOptionIds: ["C"],
@@ -340,7 +340,7 @@ export const questions: QuestionInput[] = [
     stem:
       "A Project's system instructions specify a required output format ('always respond with a summary, then three action items, then a risk callout') but nothing about tone. What is the appropriate conclusion?",
     options: [
-      { id: "A", text: "This is a reasonably effective instruction for controlling structure; if tone consistency also matters for this Project's purpose, that could be added, but its absence doesn't invalidate what's already specified." },
+      { id: "A", text: "This is a reasonably effective instruction for controlling structure; tone could be added if needed." },
       { id: "B", text: "Only tone-related instructions are ever useful; format doesn't matter." },
       { id: "C", text: "The instructions are incomplete and unusable without a stated tone." },
       { id: "D", text: "Format-related instructions are not a legitimate thing to specify." },
@@ -365,7 +365,7 @@ export const questions: QuestionInput[] = [
       { id: "A", text: "'Always provide a specific number, even if you have to guess.'" },
       { id: "B", text: "'Avoid using numbers in responses.'" },
       { id: "C", text: "'Try to be accurate.'" },
-      { id: "D", text: "'If the uploaded documentation does not contain the specific figure being asked about, say so explicitly rather than estimating or inventing a number.'" },
+      { id: "D", text: "'If the documentation doesn't contain the figure, say so explicitly rather than inventing one.'" },
     ],
     correctOptionIds: ["D"],
     selectCount: 1,
@@ -385,7 +385,7 @@ export const questions: QuestionInput[] = [
       "A company's refund policy changes, but the Project instructions used to draft refund-related customer responses still reference the old policy terms three months later. What is the issue?",
     options: [
       { id: "A", text: "This is only a problem if a customer specifically complains." },
-      { id: "B", text: "The configuration has gone stale — it should have been updated when the policy changed, since outdated instructions can now produce responses that don't reflect current policy." },
+      { id: "B", text: "The configuration has gone stale — it should've been updated when the policy changed." },
       { id: "C", text: "There is no issue, since the instructions were correct when originally written." },
       { id: "D", text: "Instructions never need to be revisited once written." },
     ],
@@ -408,7 +408,7 @@ export const questions: QuestionInput[] = [
     options: [
       { id: "A", text: "Old documents should always be kept alongside new ones indefinitely, with no distinction made." },
       { id: "B", text: "Knowledge sources don't need to be kept current once uploaded." },
-      { id: "C", text: "Knowledge sources should be kept up to date, replacing or removing superseded material so Claude isn't grounding answers in outdated information." },
+      { id: "C", text: "Knowledge sources should be kept current, replacing superseded material before it misleads answers." },
       { id: "D", text: "This is only a problem if someone asks about the exact section that changed." },
     ],
     correctOptionIds: ["C"],
@@ -428,8 +428,8 @@ export const questions: QuestionInput[] = [
     stem:
       "A team wants to keep a shared Project's configuration healthy over time. Which two practices support this? (Select 2)",
     options: [
-      { id: "A", text: "Assign clear ownership for who is responsible for updating the Project's configuration when something relevant changes." },
-      { id: "B", text: "Periodically review the Project's instructions and knowledge sources to confirm they still reflect current policies and processes." },
+      { id: "A", text: "Assign clear ownership for updating the Project's configuration when something relevant changes." },
+      { id: "B", text: "Periodically review instructions and knowledge sources to confirm they reflect current policy." },
       { id: "C", text: "Set up the configuration once at launch and never revisit it again." },
       { id: "D", text: "Let anyone on the team make undocumented changes to the instructions whenever they feel like it, with no coordination." },
     ],
@@ -450,7 +450,7 @@ export const questions: QuestionInput[] = [
     stem:
       "A new team member joins and starts using a shared Project, but isn't told about an important instruction buried in it that affects how they should phrase requests. What does this suggest about how the Project has been maintained?",
     options: [
-      { id: "A", text: "Important configuration details and their rationale should be actively communicated to new users of a shared Project, not left for them to stumble upon." },
+      { id: "A", text: "Important configuration details should be actively communicated to new users, not left to discover." },
       { id: "B", text: "The instruction should be deleted since it's apparently not important if it went unnoticed." },
       { id: "C", text: "Nothing needs to change; new team members should be expected to discover configuration details on their own over time." },
       { id: "D", text: "Shared Projects should never contain any instructions that need explaining." },
@@ -475,7 +475,7 @@ export const questions: QuestionInput[] = [
       { id: "A", text: "Add even more instructions on top without reviewing the existing ones." },
       { id: "B", text: "Delete the Project entirely and never configure a replacement." },
       { id: "C", text: "Leave all the additions in place indefinitely, since removing anything might break something." },
-      { id: "D", text: "Periodically review and consolidate the instructions, removing outdated or conflicting additions so the configuration stays coherent." },
+      { id: "D", text: "Periodically review and consolidate the instructions, removing outdated or conflicting additions." },
     ],
     correctOptionIds: ["D"],
     selectCount: 1,
@@ -495,7 +495,7 @@ export const questions: QuestionInput[] = [
       "A team lead updates a shared Project's instructions to reflect a new process, but doesn't tell the rest of the team the change was made. What risk does this create?",
     options: [
       { id: "A", text: "This is only a risk if the new instructions are themselves wrong." },
-      { id: "B", text: "Team members may be confused by a sudden change in behavior they weren't told about, or may not trust or understand why outputs changed." },
+      { id: "B", text: "Team members may be confused by a sudden change in behavior they weren't told about." },
       { id: "C", text: "The Project will automatically notify everyone regardless of whether the team lead says anything." },
       { id: "D", text: "No risk, since the instructions themselves are now correct." },
     ],
@@ -518,7 +518,7 @@ export const questions: QuestionInput[] = [
     options: [
       { id: "A", text: "Remove all knowledge sources permanently to avoid this problem in the future." },
       { id: "B", text: "Assume it's still accurate, since nothing has been reported as wrong." },
-      { id: "C", text: "Review the knowledge source against current, authoritative information and update or replace anything that has become outdated." },
+      { id: "C", text: "Review the knowledge source against current information and update anything outdated." },
       { id: "D", text: "Wait for the next annual review before taking any action." },
     ],
     correctOptionIds: ["C"],
@@ -538,7 +538,7 @@ export const questions: QuestionInput[] = [
     stem:
       "A regulatory requirement changes in a way that affects how a Project handling compliance-related drafts should behave. Who is responsible for making sure the Project's instructions reflect this change?",
     options: [
-      { id: "A", text: "The team or individual who owns the Project's configuration, since instructions don't update themselves and this is a human maintenance responsibility." },
+      { id: "A", text: "The team or individual who owns the Project's configuration — it doesn't update itself." },
       { id: "B", text: "No one — Claude will automatically detect the regulatory change and update its own behavior." },
       { id: "C", text: "The regulator is responsible for updating the Project directly." },
       { id: "D", text: "This never needs to be addressed, since the exam guide doesn't require staying current with regulations." },
@@ -563,7 +563,7 @@ export const questions: QuestionInput[] = [
       { id: "A", text: "Ask employees to look up the approved list themselves instead of configuring the Project at all." },
       { id: "B", text: "Only write instructions describing software approval in the abstract, without providing the actual list." },
       { id: "C", text: "Skip any knowledge source and rely on general knowledge about common enterprise software instead." },
-      { id: "D", text: "Upload the actual current approved-software list as a knowledge source, and instruct Claude to check requests against that specific list." },
+      { id: "D", text: "Upload the current approved-software list as a knowledge source and check requests against it." },
     ],
     correctOptionIds: ["D"],
     selectCount: 1,
@@ -583,7 +583,7 @@ export const questions: QuestionInput[] = [
       "A team wants to connect a shared calendar to a Project so Claude can help schedule meetings, but the calendar also contains some personal, non-work appointments for team members. What is an appropriate consideration?",
     options: [
       { id: "A", text: "Connect the full calendar without a second thought, since scheduling assistance is the goal." },
-      { id: "B", text: "Consider whether personal appointment details should be visible to this Project at all, and whether a work-only calendar or more limited connector scope would be more appropriate." },
+      { id: "B", text: "Consider whether personal appointments should be visible, or whether a narrower connector scope fits better." },
       { id: "C", text: "Refuse to use any calendar connector under any circumstances." },
       { id: "D", text: "Ask team members to delete all personal appointments from their calendars permanently." },
     ],
@@ -606,7 +606,7 @@ export const questions: QuestionInput[] = [
     options: [
       { id: "A", text: "'Assume the most common interpretation of every request without checking.'" },
       { id: "B", text: "'Never ask any questions under any circumstances.'" },
-      { id: "C", text: "'If a request is ambiguous or missing key details needed to complete it well, ask a clarifying question before proceeding rather than guessing.'" },
+      { id: "C", text: "'If a request is ambiguous, ask a clarifying question before proceeding rather than guessing.'" },
       { id: "D", text: "'Always answer confidently, no matter what.'" },
     ],
     correctOptionIds: ["C"],
